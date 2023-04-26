@@ -27,7 +27,12 @@ public class RegisterUserTest extends BaseDbTest {
 
         assert resp.getResult().equals("OK-00");
 
-        assert userCrudService.getUser("email@mail.it","").getUser().getPsw().equals("psw123");
+        var iResp = userCrudService.getUser("email@mail.it","").getUser();
+
+        assert iResp.getPsw().equals("psw123");
+
+        assert  userSecCrudService.getUserSec(iResp.getUserKey()).getEmailCertified().equals(false);
+        assert  secCounterCrudService.getCounter(iResp.getUserKey()).getPswCounter() == 0;
 
     }
 

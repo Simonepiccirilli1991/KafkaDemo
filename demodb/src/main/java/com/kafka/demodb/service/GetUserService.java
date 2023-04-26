@@ -1,5 +1,6 @@
 package com.kafka.demodb.service;
 
+import com.kafka.demodb.model.request.UserRequest;
 import com.kafka.demodb.model.response.GetUserResponse;
 import com.kafka.demodb.service.internal.UserCrudService;
 import org.springframework.stereotype.Service;
@@ -14,9 +15,9 @@ public class GetUserService {
     }
 
     //TODO: usare poi i record nell'orchestratore, qui sono messi funzionanti ma piu come esempio, funzionano con gestione eccezzioni
-    public UserSummary getUserFilter(String email, String username){
+    public UserSummary getUserFilter(UserRequest request){
 
-        var tempResp = userCrudService.getUser(email, username);
+        var tempResp = userCrudService.getUser(request.getEmail(), request.getUsername());
 
         if(tempResp.getResult().equals("OK-00"))
             return new UserSummary(tempResp.getUser().getEmail(),tempResp.getUser().getUsername(), tempResp.getUser().getUserKey());
