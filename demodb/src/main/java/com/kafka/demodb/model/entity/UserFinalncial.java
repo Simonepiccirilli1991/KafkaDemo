@@ -11,10 +11,10 @@ public class UserFinalncial {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
     private String userKey;
     private String username;
     private String email;
-    private Long accountBalance;
+    private Double accountBalance;
 
 }

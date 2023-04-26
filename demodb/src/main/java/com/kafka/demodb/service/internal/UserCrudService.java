@@ -1,9 +1,9 @@
 package com.kafka.demodb.service.internal;
 
-import com.kafka.demodb.model.entity.User;
+import com.kafka.demodb.model.entity.UserAccount;
 import com.kafka.demodb.model.response.BaseDbResponse;
 import com.kafka.demodb.model.response.GetUserResponse;
-import com.kafka.demodb.repo.UserRepo;
+import com.kafka.demodb.repo.UserAccRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -12,10 +12,10 @@ import org.springframework.util.ObjectUtils;
 public class UserCrudService {
 
     @Autowired
-    UserRepo userRepo;
+    UserAccRepo userRepo;
 
 
-    public BaseDbResponse insertUser(User user){
+    public BaseDbResponse insertUser(UserAccount user){
 
         var checkIfPresent = getUser(user.getEmail(), user.getUsername());
 
@@ -33,7 +33,7 @@ public class UserCrudService {
 
     public BaseDbResponse updateUserEmail(String username, String email){
 
-        var user = userRepo.findUserByUsername(username);
+        var user = userRepo.findByUsername(username);
 
         if(user.isEmpty())
             return new BaseDbResponse("ERKO-02","Missing this usernameon db", "Generic_Error");
@@ -49,7 +49,7 @@ public class UserCrudService {
 
     public BaseDbResponse updateUserUsername(String email, String username){
 
-        var user = userRepo.findUserByUsername(email);
+        var user = userRepo.findByUsername(email);
 
         if(user.isEmpty())
             return new BaseDbResponse("ERKO-02","Missing this email on  db", "Generic_Error");
@@ -67,7 +67,7 @@ public class UserCrudService {
 
         GetUserResponse response = new GetUserResponse();
 
-        var emailUser = userRepo.findUserByEmail(email);
+        var emailUser = userRepo.findByEmail(email);
 
         if(emailUser.isPresent()){
             response.setUser(emailUser.get());
@@ -75,7 +75,7 @@ public class UserCrudService {
             return response;
         }
 
-        var nameUser = userRepo.findUserByUsername(username);
+        var nameUser = userRepo.findByUsername(username);
 
         if(nameUser.isEmpty()){
             response.setResult("ERKO-01");

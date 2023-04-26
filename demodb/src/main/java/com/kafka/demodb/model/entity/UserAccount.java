@@ -5,13 +5,13 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "user", uniqueConstraints=
-@UniqueConstraint(columnNames={"username","email","userKey"}))
-public class User {
+@Table(name = "user_account",uniqueConstraints=
+@UniqueConstraint(columnNames={"userKey", "username", "email"}))
+public class UserAccount {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
     private String username;
     private String email;
     private String psw;
