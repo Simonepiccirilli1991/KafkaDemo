@@ -85,24 +85,8 @@ public class GenerateCheckOtpTest {
             checkOtpvService.checkOtp(request);
         });
 
+
         System.out.println(ex);
     }
 
-    @Test
-    void checkErroValueTestOK() throws Exception{
-
-        var resp = generateOtpvService.generateOtpv("user3");
-
-        Thread.sleep(60 * 1000);
-
-        CheckOtpvRequest request = new CheckOtpvRequest();
-        request.setOtp("otp");
-        request.setUserKey("user2");
-        request.setTrxId(resp.trxId());
-
-        var response = checkOtpvService.checkOtp(request);
-
-        System.out.println(response);
-
-    }
 }

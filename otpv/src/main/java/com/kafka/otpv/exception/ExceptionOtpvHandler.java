@@ -17,8 +17,6 @@ public class ExceptionOtpvHandler {
     // generic expeption handler
     @ExceptionHandler(OtpvError.class)
     public ResponseEntity<ApiError> actionError(OtpvError ex){
-
-
         ApiError response = new ApiError();
 
         response.setErrMsg(ex.getErrMsg());
