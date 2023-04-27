@@ -37,7 +37,5 @@ public class CheckOtpvService {
         else
             throw new OtpvError(HttpStatus.FORBIDDEN, "Invalid otp provided, retry or resend", "Invalid_Otp");
 
-
-
     }
 }

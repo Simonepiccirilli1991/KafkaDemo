@@ -15,6 +15,7 @@ public class OtpvHazelConfig {
 
     public Config createConfigOtp() {
         Config config = new Config();
+        config.setInstanceName("otphaze");
         config.addMapConfig(mapConfig());
         return config;
     }
@@ -23,6 +24,7 @@ public class OtpvHazelConfig {
         MapConfig mapConfig = new MapConfig(OTPS);
         mapConfig.setTimeToLiveSeconds(360);
         mapConfig.setMaxIdleSeconds(120);
+        mapConfig.setPerEntryStatsEnabled(true);
         return mapConfig;
     }
 }

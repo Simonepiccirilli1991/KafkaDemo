@@ -17,7 +17,7 @@ public class GenerateOtpvService {
         this.otpvCacheService = otpvCacheService;
     }
 
-    public String generateOtpv(String userKey){
+    public GenerateOtpv generateOtpv(String userKey){
 
         OtpvDto otpv = new OtpvDto();
 
@@ -33,7 +33,8 @@ public class GenerateOtpvService {
 
         otpvCacheService.insert(trxId, otpv);
 
-        return trxId;
+        // messo questo perche mi serve sapere otp per testare
+        return new GenerateOtpv(otp, trxId);
     }
 
 
@@ -49,4 +50,6 @@ public class GenerateOtpvService {
         return sb.toString();
     }
 
+
+    public record GenerateOtpv(String otp, String trxId){};
 }
