@@ -28,7 +28,7 @@ public class UserCrudService {
             return new BaseDbResponse("ERKO-01","Error in saving user", "Generic_Error");
         }
 
-        return new BaseDbResponse("OK-00");
+        return new BaseDbResponse("OK-00",user.getUserKey());
     }
 
     public BaseDbResponse updateUserEmail(String username, String email){

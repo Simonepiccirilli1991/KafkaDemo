@@ -13,10 +13,6 @@ k
 ;demodb/src/main/java/com/kafka/demodb/repo/UserSecRepo.java,8\8\883251671894e1a5989dcf3507f5e4e3a9c3fb36
 „
 Tdemodb/src/main/java/com/kafka/demodb/service/internal/UserFinancialCrudService.java,6\2\6220d439e7fb9e57a9e586bf076d36f07cf44b91
-x
-Hdemodb/src/main/java/com/kafka/demodb/model/response/BaseDbResponse.java,d\b\db09441139d625fa805546cc48da557344b8972c
-t
-Ddemodb/src/main/java/com/kafka/demodb/model/request/UserRequest.java,8\f\8fd5dd4ae7b6c57585f6b8e2568fbd92ca8ca9fa
 l
 <demodb/src/main/java/com/kafka/demodb/DemodbApplication.java,c\f\cff4356f3cc500608402aeb0e67785fc4029c966
 l
@@ -33,8 +29,6 @@ k
 ;demodb/src/main/java/com/kafka/demodb/repo/UserAccRepo.java,3\2\320ba2bee108b39fdb1b8d48bb9967c94f326f06
 >
 demodb/pom.xml,f\a\fa245f6a01ab40dc44efa9ec358c7b8693907e8f
-{
-Kdemodb/src/main/java/com/kafka/demodb/service/internal/UserCrudService.java,5\0\508938ef859192c85192d281380e4695e78657d7
 t
 Ddemodb/src/main/java/com/kafka/demodb/model/entity/UserSecurity.java,c\b\cbbf1028aa9c10c369759f419b7fadf0a42b8083
 {
@@ -43,10 +37,6 @@ w
 Gdemodb/src/main/java/com/kafka/demodb/model/entity/SecurityCounter.java,c\5\c50637d355d6f33542d1cad6a7abf36c79baab5f
 n
 >demodb/src/main/java/com/kafka/demodb/repo/SecCounterRepo.java,a\c\ac4668b894c674c866d21341e8b106893e0d2d8d
-v
-Fdemodb/src/main/java/com/kafka/demodb/service/RegisterUserService.java,f\b\fbbe67b8a37cdb4819a2ec195c9a4ea0914b4d82
-t
-Ddemodb/src/main/java/com/kafka/demodb/controller/UserController.java,3\d\3d6799298a7d33cd3c5fb6b69ae6db706057b386
 q
 Ademodb/src/main/java/com/kafka/demodb/service/GetUserService.java,7\2\72051054b22054b7b7871e5c59fa09ddecaa5610
 n
@@ -59,3 +49,7 @@ Cdemodb/src/test/java/com/kafka/demodb/service/RegisterUserTest.java,6\1\616c43
 Qdemodb/src/main/java/com/kafka/demodb/service/internal/SecCounterCrudService.java,c\1\c14a7171dbb48660e832a62f0aaf606690dbb6b4
 o
 ?demodb/src/test/java/com/kafka/demodb/service/CheckPinTest.java,c\4\c4b9450978c7789ffdb3e7ecf573e745d6f2efa5
+j
+:otpv/src/main/java/com/kafka/otpv/exception/OtpvError.java,d\8\d8d21e823562f2b06979a8b5d86cb8823c0f853b
+q
+Ademodb/src/main/java/com/kafka/demodb/exception/GenericError.java,4\1\419a64ab5eddce5d0409d246991fc4326edb1869
