@@ -1,7 +1,9 @@
 package com.kafka.demodb;
 
+import com.kafka.demodb.repo.SecCounterRepo;
 import com.kafka.demodb.repo.UserAccRepo;
 import com.kafka.demodb.repo.UserFinancialRepo;
+import com.kafka.demodb.repo.UserSecRepo;
 import com.kafka.demodb.service.CheckPinService;
 import com.kafka.demodb.service.GetUserService;
 import com.kafka.demodb.service.RegisterUserService;
@@ -23,7 +25,10 @@ public class BaseDbTest {
 
     @Autowired
     protected UserFinancialRepo userFinancialRepo;
-
+    @Autowired
+    protected SecCounterRepo secCounterRepo;
+    @Autowired
+    protected UserSecRepo userSecRepo;
     @Autowired
     protected UserAccRepo userAccRepo;
     @Autowired

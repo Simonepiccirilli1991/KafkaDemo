@@ -45,10 +45,6 @@ n
 Ndemodb/src/main/java/com/kafka/demodb/service/internal/UserSecCrudService.java,c\5\c51fadf8daa0934c43b9eb53906ba2169701801b
 s
 Cdemodb/src/test/java/com/kafka/demodb/service/RegisterUserTest.java,6\1\616c4344b7576fb6bfade70e736d7e5ae0dce329
-Å
-Qdemodb/src/main/java/com/kafka/demodb/service/internal/SecCounterCrudService.java,c\1\c14a7171dbb48660e832a62f0aaf606690dbb6b4
-o
-?demodb/src/test/java/com/kafka/demodb/service/CheckPinTest.java,c\4\c4b9450978c7789ffdb3e7ecf573e745d6f2efa5
 j
 :otpv/src/main/java/com/kafka/otpv/exception/OtpvError.java,d\8\d8d21e823562f2b06979a8b5d86cb8823c0f853b
 q
