@@ -63,7 +63,24 @@ public class UserCrudService {
         return new BaseDbResponse("OK-00");
     }
 
-    public GetUserResponse getUser(String email, String username){
+    public BaseDbResponse updateUserPsw(String email, String username, String psw){
+
+        var user = userRepo.findByEmail(email);
+
+        if(user.isEmpty())
+            return new BaseDbResponse("ERKO-02","Missing this email on  db", "Generic_Error");
+        try{
+
+            user.get().setPsw(psw);
+
+            userRepo.save(user.get());
+        }catch(Exception e){
+            return new BaseDbResponse("ERKO-01","Error in updating username user", "Generic_Error");
+        }
+        return new BaseDbResponse("OK-00");
+    }
+
+    public GetUserResponse getUser(String email, String userKey){
 
         GetUserResponse response = new GetUserResponse();
 
@@ -75,9 +92,25 @@ public class UserCrudService {
             return response;
         }
 
-        var nameUser = userRepo.findByUsername(username);
+        var nameUser = userRepo.findByUserKey(userKey);
 
-        if(nameUser.isEmpty()){
+        if(ObjectUtils.isEmpty(nameUser)){
+            response.setResult("ERKO-01");
+            response.setErrMsg("Missing user on DB");
+            response.setErrType("User not found");
+            return response;
+        }
+        response.setUser(nameUser); response.setResult("OK-00");
+        return response;
+    }
+
+    public GetUserResponse getUserByUsername(String userName){
+
+        GetUserResponse response = new GetUserResponse();
+
+        var nameUser = userRepo.findByUsername(userName);
+
+        if(ObjectUtils.isEmpty(nameUser)){
             response.setResult("ERKO-01");
             response.setErrMsg("Missing user on DB");
             response.setErrType("User not found");

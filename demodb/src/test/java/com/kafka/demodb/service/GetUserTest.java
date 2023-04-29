@@ -22,18 +22,18 @@ public class GetUserTest extends BaseDbTest {
         userAcc.setUserKey("getUserKey");
 
         UserRequest request = new UserRequest();
-        request.setUsername("getUserProva");
+        request.setUserKey("getUserKey");
 
         userAccRepo.save(userAcc);
 
-        var resp = getUserService.getUser("","getUserProva");
+        var resp = getUserService.getUser("","getUserKey");
 
         assert resp.getUser().getPsw().equals("getpsw123");
 
         var resp2 = getUserService.getUserFilter(request);
 
         assert  resp2.email().equals("getemail@mail.it");
-        assert  resp2.userKey().equals("getUserKey");
+        assert  resp2.username().equals("getUserProva");
 
 
     }

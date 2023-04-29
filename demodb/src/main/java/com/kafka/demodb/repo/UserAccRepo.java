@@ -16,4 +16,6 @@ public interface UserAccRepo extends JpaRepository<UserAccount, Long> {
     @Query(value = "SELECT * FROM user_account WHERE user_account.email = :email",
             nativeQuery = true)
     Optional<UserAccount> findByEmail(@Param("email") String email);
+
+    UserAccount findByUserKey(String userKey);
 }
