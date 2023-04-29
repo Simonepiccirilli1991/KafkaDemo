@@ -3,6 +3,7 @@ package com.kafka.demodb.service;
 import com.kafka.demodb.exception.CustomError;
 import com.kafka.demodb.exception.GenericError;
 import com.kafka.demodb.model.request.ChangePswRequest;
+import com.kafka.demodb.model.request.RetrivePswRequest;
 import com.kafka.demodb.model.response.BaseDbResponse;
 import com.kafka.demodb.service.fragment.CheckOtpvService;
 import com.kafka.demodb.service.internal.SecCounterCrudService;
@@ -73,7 +74,7 @@ public class UpdateSecuretuService {
         // se otp e corretto updato certifica
         if(check){
             userCrudService.updateUserPsw(request.getEmail(),"",request.getPsw());
-            return new BaseDbResponse("OK-00 - Otp Verified");
+            return new BaseDbResponse("OK-00 - Psw changed");
         }
         else{
             secCounterCrudService.resetCounterEmail(request.getUserKey());
@@ -82,21 +83,21 @@ public class UpdateSecuretuService {
     }
 
     //retrivePsw
-    public BaseDbResponse retrivePsw(String email,String otp,String userKey,String trxId){
+    public BaseDbResponse retrivePsw(RetrivePswRequest request){
 
-        var userAcc = userCrudService.getUser(email,userKey);
+        var userAcc = userCrudService.getUser(request.getEmail(),request.getUserKey());
 
         //se user non esiste lancio generic per non fare enumeration
         if(ObjectUtils.isEmpty(userAcc.getUser()))
             throw new GenericError();
 
-        var check = checkOtpvService.checkOtp(trxId,userKey,otp);
+        var check = checkOtpvService.checkOtp(request.getTrxId(),request.getUserKey(),request.getOtp());
         // se otp e corretto updato certifica
         if(check){
             return new BaseDbResponse("OK-00",userAcc.getUser().getPsw());
         }
         else{
-            secCounterCrudService.resetCounterEmail(userKey);
+            secCounterCrudService.resetCounterEmail(request.getUserKey());
             throw new CustomError("Invalid_Otp","InvalidOtp", LocalDateTime.now(), HttpStatus.FORBIDDEN);
         }
     }

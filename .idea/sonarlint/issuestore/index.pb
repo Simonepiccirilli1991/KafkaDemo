@@ -35,8 +35,6 @@ t
 Ddemodb/src/main/java/com/kafka/demodb/model/entity/UserSecurity.java,c\b\cbbf1028aa9c10c369759f419b7fadf0a42b8083
 {
 Kdemodb/src/main/java/com/kafka/demodb/service/internal/ItemCrudService.java,b\d\bd240ca2aeb28cd19a012e452e15e35c36cd85f8
-s
-Cdemodb/src/test/java/com/kafka/demodb/service/RegisterUserTest.java,6\1\616c4344b7576fb6bfade70e736d7e5ae0dce329
 j
 :otpv/src/main/java/com/kafka/otpv/exception/OtpvError.java,d\8\d8d21e823562f2b06979a8b5d86cb8823c0f853b
 q
@@ -51,8 +49,6 @@ j
 :otpv/src/main/java/com/kafka/otpv/service/GenerateKey.java,a\2\a2e19ae9cf55123a22045e00863098861a317e3a
 ~
 Notpv/src/main/java/com/kafka/otpv/model/response/CheckOtpvSummaryResponse.java,3\1\31c37f7c990340e8b6e6d48ade4cbf63dde5f2bb
-v
-Fdemodb/src/main/java/com/kafka/demodb/service/RegisterUserService.java,f\b\fbbe67b8a37cdb4819a2ec195c9a4ea0914b4d82
 x
 Hotpv/src/main/java/com/kafka/otpv/model/request/GenerateOtpvRequest.java,3\f\3f21012965399dc0668332ab18da6bc416c323e5
 {
@@ -80,5 +76,3 @@ o
 ?demodb/src/test/java/com/kafka/demodb/service/CheckPinTest.java,c\4\c4b9450978c7789ffdb3e7ecf573e745d6f2efa5
 s
 Cotpv/src/test/java/com/kafka/otpv/service/GenerateCheckOtpTest.java,5\c\5c2c89e74d2ff25c17a2a9ab44fc05397038166c
-u
-Edemodb/src/test/java/com/kafka/demodb/service/UpdateSecuretyTest.java,6\4\6450c7d0cc4916fef0f0d00fdf210bcb07e90336

@@ -47,4 +47,14 @@ public class UserSecCrudService {
         userSec.setEmailCertified(true);
         userSecRepo.save(userSec);
     }
+
+    public void updateLastPsw(String userKey,String psw){
+
+        var userSec = userSecRepo.findByUserKey(userKey);
+        if(ObjectUtils.isEmpty(userSec))
+            return;
+
+        userSec.setLastPsw(psw);
+        userSecRepo.save(userSec);
+    }
 }

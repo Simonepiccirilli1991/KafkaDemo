@@ -7,6 +7,7 @@ import com.kafka.demodb.model.entity.SecurityCounter;
 import com.kafka.demodb.model.entity.UserAccount;
 import com.kafka.demodb.model.entity.UserSecurity;
 import com.kafka.demodb.model.request.CertifyMailRequest;
+import com.kafka.demodb.model.request.ChangePswRequest;
 import com.kafka.demodb.model.response.CheckOtpvSummaryResponse;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -55,6 +56,8 @@ public class UpdateSecuretyTest extends BaseDbTest {
         var response = updateSecuretuService.certifyMailUser("userKeyCertify","mail","otp","trxId");
 
         assert response.getResult().equals("OK-00 - Otp Verified");
+
+        assert userSecRepo.findByUserKey("userKeyCertify").getEmailCertified().equals(true);
     }
 
     @Test
@@ -90,5 +93,38 @@ public class UpdateSecuretyTest extends BaseDbTest {
         assert  response.getErrTp().equals("Invalid_Otp");
         assert  response.getErrMsg().equals("InvalidOtp");
         assert  response.getStatus().is4xxClientError();
+    }
+
+    @Test
+    void changePswTestOK(){
+
+        UserAccount user = new UserAccount();
+        user.setPsw("1234");
+        user.setUsername("username123");
+        user.setUserKey("userKeyChange");
+        user.setEmail("mail");
+        userCrudService.insertUser(user);
+
+        UserSecurity userSec = new UserSecurity();
+        userSec.setLastPsw("1234");
+        userSec.setEmailCertified(false);
+        userSec.setUserKey("userKeyChange");
+        userSecRepo.save(userSec);
+
+        ChangePswRequest request = new ChangePswRequest();
+        request.setPsw("12345");
+        request.setOtp("otp");
+        request.setUserKey("userKeyChange");
+        request.setTrxId("trxId");
+
+        Mockito.when(otpWebClient.validateOtp(any(),any(),any())).thenReturn(true);
+
+        var response = updateSecuretuService.changePsw(request);
+
+        assert response.getResult().equals("OK-00 - Psw changed");
+        //TODO: vedere poi fix perche non updata psw;
+        var resp = getUserService.getUser("","userKeyChange");
+
+        assert resp.getUser().getPsw().equals("12345");
     }
 }

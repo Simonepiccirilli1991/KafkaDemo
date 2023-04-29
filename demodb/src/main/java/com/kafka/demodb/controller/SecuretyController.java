@@ -2,6 +2,7 @@ package com.kafka.demodb.controller;
 
 import com.kafka.demodb.model.request.CertifyMailRequest;
 import com.kafka.demodb.model.request.ChangePswRequest;
+import com.kafka.demodb.model.request.RetrivePswRequest;
 import com.kafka.demodb.model.response.BaseDbResponse;
 import com.kafka.demodb.service.UpdateSecuretuService;
 import org.springframework.http.ResponseEntity;
@@ -28,5 +29,11 @@ public class SecuretyController {
     @PostMapping("change")
     public ResponseEntity<BaseDbResponse> changePsw(@RequestBody ChangePswRequest request){
         return ResponseEntity.ok(updateSecuretuService.changePsw(request));
+    }
+
+    @PostMapping("retrive")
+    public ResponseEntity<BaseDbResponse> retrivePsw(@RequestBody RetrivePswRequest request){
+        return ResponseEntity.ok(updateSecuretuService.retrivePsw(request));
+
     }
 }
