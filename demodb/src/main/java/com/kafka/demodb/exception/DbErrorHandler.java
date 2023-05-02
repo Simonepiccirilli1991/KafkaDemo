@@ -24,7 +24,7 @@ public class DbErrorHandler {
 
     record GenerciErrResponse(String errMgs, String errTp, String from){}
 
-    record CustomExceptionResponse(String errMgs, String errTp, String from, LocalDateTime time){};
+    public record CustomExceptionResponse(String errMgs, String errTp, String from, LocalDateTime time){};
 
 
     private CustomExceptionResponse mapCustomExcept(CustomError ex){

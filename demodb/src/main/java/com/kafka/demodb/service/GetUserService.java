@@ -32,6 +32,18 @@ public class GetUserService {
 
         return tempResp;
     }
+
+    public UserSummary getUserFilterUsername(String username){
+
+        var tempResp = userCrudService.getUserByUsername(username);
+
+        if(tempResp.getResult().equals("OK-00"))
+            return new UserSummary(tempResp.getUser().getEmail(),tempResp.getUser().getUsername(), tempResp.getUser().getUserKey());
+
+        else
+            return new UserSummary("","","");
+    }
+
     public record UserSummary(String email, String username, String userKey){}
 
 }

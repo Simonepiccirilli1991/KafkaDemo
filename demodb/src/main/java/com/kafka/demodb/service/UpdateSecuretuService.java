@@ -97,7 +97,7 @@ public class UpdateSecuretuService {
             return new BaseDbResponse("OK-00",userAcc.getUser().getPsw());
         }
         else{
-            secCounterCrudService.resetCounterEmail(request.getUserKey());
+            secCounterCrudService.updateCounterMail(request.getUserKey());
             throw new CustomError("Invalid_Otp","InvalidOtp", LocalDateTime.now(), HttpStatus.FORBIDDEN);
         }
     }

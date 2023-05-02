@@ -1,31 +1,38 @@
-package com.kafka.demodb.service;
+package com.kafka.demodb.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.kafka.demodb.BaseDbTest;
-import com.kafka.demodb.client.OtpWebClient;
 import com.kafka.demodb.exception.CustomError;
+import com.kafka.demodb.exception.DbErrorHandler;
 import com.kafka.demodb.model.entity.SecurityCounter;
 import com.kafka.demodb.model.entity.UserAccount;
 import com.kafka.demodb.model.entity.UserSecurity;
 import com.kafka.demodb.model.request.CertifyMailRequest;
 import com.kafka.demodb.model.request.ChangePswRequest;
 import com.kafka.demodb.model.request.RetrivePswRequest;
-import com.kafka.demodb.model.response.CheckOtpvSummaryResponse;
+import com.kafka.demodb.model.response.BaseDbResponse;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.util.concurrent.TimeoutException;
+import java.util.TimeZone;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
-public class UpdateSecuretyTest extends BaseDbTest {
+@AutoConfigureMockMvc
+public class SecuretyControllerTest extends BaseDbTest {
 
     @Test
-    void certifyMailTestOK(){
+    void certifyMailTestOK() throws Exception{
 
         SecurityCounter counter = new SecurityCounter();
         counter.setEmailCounter(0);
@@ -49,15 +56,19 @@ public class UpdateSecuretyTest extends BaseDbTest {
 
         Mockito.when(otpWebClient.validateOtp(any(),any(),any())).thenReturn(true);
 
-        var response = updateSecuretuService.certifyMailUser("userKeyCertify","mail","otp","trxId");
+        var resp = mvc.perform(MockMvcRequestBuilders.post("/api/v1/securety/certify")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsString(request)))
+                .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
 
+        var response = mapper.readValue(resp, BaseDbResponse.class);
         assert response.getResult().equals("OK-00 - Otp Verified");
 
         assert userSecRepo.findByUserKey("userKeyCertify").getEmailCertified().equals(true);
     }
 
     @Test
-    void certiMailTestKO(){
+    void certiMailTestKO() throws Exception{
 
         SecurityCounter counter = new SecurityCounter();
         counter.setEmailCounter(0);
@@ -81,18 +92,20 @@ public class UpdateSecuretyTest extends BaseDbTest {
 
         Mockito.when(otpWebClient.validateOtp(any(),any(),any())).thenReturn(false);
 
-        CustomError response =  assertThrows(CustomError.class, () -> {
-            updateSecuretuService.certifyMailUser("userKeyCertifyKO","mail","otp","trxId");
-        });
+        var resp = mvc.perform(MockMvcRequestBuilders.post("/api/v1/securety/certify")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsString(request)))
+                .andExpect(status().isForbidden()).andReturn().getResponse().getContentAsString();
 
+        var response = mapper.readValue(resp, DbErrorHandler.CustomExceptionResponse.class);
 
-        assert  response.getErrTp().equals("Invalid_Otp");
-        assert  response.getErrMsg().equals("InvalidOtp");
-        assert  response.getStatus().is4xxClientError();
+        assert  response.errTp().equals("Invalid_Otp");
+        assert  response.errMgs().equals("InvalidOtp");
     }
 
+    //----------------CHANGE ---------------------------------------------//
     @Test
-    void changePswTestOK(){
+    void changePswTestOK() throws Exception{
 
         UserAccount user = new UserAccount();
         user.setPsw("1234");
@@ -115,16 +128,22 @@ public class UpdateSecuretyTest extends BaseDbTest {
 
         Mockito.when(otpWebClient.validateOtp(any(),any(),any())).thenReturn(true);
 
-        var response = updateSecuretuService.changePsw(request);
+        var resp = mvc.perform(MockMvcRequestBuilders.post("/api/v1/securety/change")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsString(request)))
+                .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+
+        var response = mapper.readValue(resp, BaseDbResponse.class);
 
         assert response.getResult().equals("OK-00 - Psw changed");
-        var resp = getUserService.getUser("","userKeyChange");
 
-        assert resp.getUser().getPsw().equals("12345");
+        var iResp = getUserService.getUser("","userKeyChange");
+
+        assert iResp.getUser().getPsw().equals("12345");
     }
 
     @Test
-    void changePswTestKO(){
+    void changePswTestKO() throws Exception{
 
         UserAccount user = new UserAccount();
         user.setPsw("1234");
@@ -154,18 +173,22 @@ public class UpdateSecuretyTest extends BaseDbTest {
 
         Mockito.when(otpWebClient.validateOtp(any(),any(),any())).thenReturn(false);
 
-        CustomError response =  assertThrows(CustomError.class, () -> {
-            updateSecuretuService.changePsw(request);
-        });
-        assert  response.getErrTp().equals("Invalid_Otp");
-        assert  response.getErrMsg().equals("InvalidOtp");
-        assert  response.getStatus().is4xxClientError();
+        var resp = mvc.perform(MockMvcRequestBuilders.post("/api/v1/securety/change")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsString(request)))
+                .andExpect(status().isForbidden()).andReturn().getResponse().getContentAsString();
+
+        var response = mapper.readValue(resp, DbErrorHandler.CustomExceptionResponse.class);
+
+        assert  response.errTp().equals("Invalid_Otp");
+        assert  response.errMgs().equals("InvalidOtp");
 
         assert  secCounterRepo.findByUserKey("userKeyChangeKO").getPswCounter() == 1;
     }
 
+    //-------------------------RETRIVE -----------------------------------------///
     @Test
-    void retryvePswTestOK(){
+    void retryvePswTestOK() throws Exception{
 
         UserAccount user = new UserAccount();
         user.setPsw("1234");
@@ -188,13 +211,18 @@ public class UpdateSecuretyTest extends BaseDbTest {
 
         Mockito.when(otpWebClient.validateOtp(any(),any(),any())).thenReturn(true);
 
-        var response = updateSecuretuService.retrivePsw(request);
+        var resp = mvc.perform(MockMvcRequestBuilders.post("/api/v1/securety/retrive")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsString(request)))
+                .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+
+        var response = mapper.readValue(resp, BaseDbResponse.class);
 
         assert response.getUserKey().equals("1234");
     }
 
     @Test
-    void retrivePswTestKO(){
+    void retrivePswTestKO() throws Exception{
 
         UserAccount user = new UserAccount();
         user.setPsw("1234");
@@ -223,11 +251,16 @@ public class UpdateSecuretyTest extends BaseDbTest {
 
         Mockito.when(otpWebClient.validateOtp(any(),any(),any())).thenReturn(false);
 
-        CustomError response =  assertThrows(CustomError.class, () -> {
-            updateSecuretuService.retrivePsw(request);
-        });
-        assert  response.getErrTp().equals("Invalid_Otp");
-        assert  response.getErrMsg().equals("InvalidOtp");
-        assert  response.getStatus().is4xxClientError();
+        var resp = mvc.perform(MockMvcRequestBuilders.post("/api/v1/securety/retrive")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsString(request)))
+                .andExpect(status().isForbidden()).andReturn().getResponse().getContentAsString();
+
+        var response = mapper.readValue(resp, DbErrorHandler.CustomExceptionResponse.class);
+
+        assert  response.errTp().equals("Invalid_Otp");
+        assert  response.errMgs().equals("InvalidOtp");
+
+
     }
 }

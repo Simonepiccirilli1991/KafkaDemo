@@ -37,12 +37,8 @@ j
 :otpv/src/main/java/com/kafka/otpv/exception/OtpvError.java,d\8\d8d21e823562f2b06979a8b5d86cb8823c0f853b
 q
 Ademodb/src/main/java/com/kafka/demodb/exception/GenericError.java,4\1\419a64ab5eddce5d0409d246991fc4326edb1869
-p
-@demodb/src/main/java/com/kafka/demodb/exception/CustomError.java,0\7\077f106e12e29659a7db4bb77b4e6a9f69531cca
 u
 Eotpv/src/main/java/com/kafka/otpv/exception/ExceptionOtpvHandler.java,d\0\d03d3ec6febabd0a793ecf96c278082f0079f1aa
-s
-Cdemodb/src/main/java/com/kafka/demodb/exception/DbErrorHandler.java,9\a\9a280586f30836152f5a646d937a83dda1afe3b0
 j
 :otpv/src/main/java/com/kafka/otpv/service/GenerateKey.java,a\2\a2e19ae9cf55123a22045e00863098861a317e3a
 ~
@@ -66,17 +62,9 @@ n
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-e
-5demodb/src/test/java/com/kafka/demodb/BaseDbTest.java,4\0\40be2deddce33b988e2497c3b050092793319778
-o
-?demodb/src/test/java/com/kafka/demodb/service/CheckPinTest.java,c\4\c4b9450978c7789ffdb3e7ecf573e745d6f2efa5
 s
 Cotpv/src/test/java/com/kafka/otpv/service/GenerateCheckOtpTest.java,5\c\5c2c89e74d2ff25c17a2a9ab44fc05397038166c
-r
-Bdemodb/src/main/java/com/kafka/demodb/service/CheckPinService.java,1\5\1540d3577756176e2b58f2f877b43127703e1152
 k
 ;demodb/src/main/java/com/kafka/demodb/repo/UserAccRepo.java,3\2\320ba2bee108b39fdb1b8d48bb9967c94f326f06
-t
-Ddemodb/src/main/java/com/kafka/demodb/model/request/UserRequest.java,8\f\8fd5dd4ae7b6c57585f6b8e2568fbd92ca8ca9fa
 z
 Jdemodb/src/main/java/com/kafka/demodb/model/request/RetrivePswRequest.java,4\a\4a3d7dca2f937ca46c1b0efdf38448444a8ae819
