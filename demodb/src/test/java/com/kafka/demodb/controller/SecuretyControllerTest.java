@@ -31,6 +31,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class SecuretyControllerTest extends BaseDbTest {
 
+    @Autowired
+    protected MockMvc mvc;
+
     @Test
     void certifyMailTestOK() throws Exception{
 

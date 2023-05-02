@@ -25,8 +25,6 @@ y
 Idemodb/src/main/java/com/kafka/demodb/model/response/GetUserResponse.java,5\2\5283348f1e9adf8b15aa8a44653908cf25b83650
 >
 demodb/pom.xml,f\a\fa245f6a01ab40dc44efa9ec358c7b8693907e8f
-t
-Ddemodb/src/main/java/com/kafka/demodb/model/entity/UserSecurity.java,c\b\cbbf1028aa9c10c369759f419b7fadf0a42b8083
 {
 Kdemodb/src/main/java/com/kafka/demodb/service/internal/ItemCrudService.java,b\d\bd240ca2aeb28cd19a012e452e15e35c36cd85f8
 w
@@ -55,8 +53,6 @@ p
 @otpv/src/main/java/com/kafka/otpv/controller/OtpvController.java,a\0\a04644cd73649c848c059ca5a3ceeecaaa0ee24c
 ‚
 Rdemodb/src/main/java/com/kafka/demodb/model/response/CheckOtpvSummaryResponse.java,3\1\3155fd7961946294327a87a9df211d80566c4c3c
-x
-Hdemodb/src/main/java/com/kafka/demodb/model/response/BaseDbResponse.java,d\b\db09441139d625fa805546cc48da557344b8972c
 n
 >demodb/src/main/java/com/kafka/demodb/client/OtpWebClient.java,c\3\c3fc46c398eed218af4bfc9d7b279be2837bdc78
 :

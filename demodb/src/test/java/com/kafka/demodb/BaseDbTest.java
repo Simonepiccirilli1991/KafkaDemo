@@ -7,10 +7,7 @@ import com.kafka.demodb.repo.SecCounterRepo;
 import com.kafka.demodb.repo.UserAccRepo;
 import com.kafka.demodb.repo.UserFinancialRepo;
 import com.kafka.demodb.repo.UserSecRepo;
-import com.kafka.demodb.service.CheckPinService;
-import com.kafka.demodb.service.GetUserService;
-import com.kafka.demodb.service.RegisterUserService;
-import com.kafka.demodb.service.UpdateSecuretuService;
+import com.kafka.demodb.service.*;
 import com.kafka.demodb.service.internal.SecCounterCrudService;
 import com.kafka.demodb.service.internal.UserCrudService;
 import com.kafka.demodb.service.internal.UserSecCrudService;
@@ -46,7 +43,7 @@ public class BaseDbTest {
     @Autowired
     protected UpdateSecuretuService updateSecuretuService;
     @Autowired
-    protected MockMvc mvc;
+    protected StatusService statusService;
     @MockBean
     protected OtpWebClient otpWebClient;
     protected ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());

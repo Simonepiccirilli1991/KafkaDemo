@@ -1,7 +1,6 @@
 package com.kafka.demodb.service;
 
 import com.kafka.demodb.BaseDbTest;
-import com.kafka.demodb.client.OtpWebClient;
 import com.kafka.demodb.exception.CustomError;
 import com.kafka.demodb.model.entity.SecurityCounter;
 import com.kafka.demodb.model.entity.UserAccount;
@@ -9,14 +8,9 @@ import com.kafka.demodb.model.entity.UserSecurity;
 import com.kafka.demodb.model.request.CertifyMailRequest;
 import com.kafka.demodb.model.request.ChangePswRequest;
 import com.kafka.demodb.model.request.RetrivePswRequest;
-import com.kafka.demodb.model.response.CheckOtpvSummaryResponse;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-
-import java.util.concurrent.TimeoutException;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;

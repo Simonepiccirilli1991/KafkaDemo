@@ -29,8 +29,6 @@ w
 Gdemodb/src/main/java/com/kafka/demodb/model/entity/SecurityCounter.java,c\5\c50637d355d6f33542d1cad6a7abf36c79baab5f
 n
 >demodb/src/main/java/com/kafka/demodb/repo/SecCounterRepo.java,a\c\ac4668b894c674c866d21341e8b106893e0d2d8d
-t
-Ddemodb/src/main/java/com/kafka/demodb/model/entity/UserSecurity.java,c\b\cbbf1028aa9c10c369759f419b7fadf0a42b8083
 {
 Kdemodb/src/main/java/com/kafka/demodb/service/internal/ItemCrudService.java,b\d\bd240ca2aeb28cd19a012e452e15e35c36cd85f8
 j
@@ -55,8 +53,6 @@ o
 ?otpv/src/main/java/com/kafka/otpv/service/CheckOtpvService.java,6\6\66df714e38e9cb957788cf883ef43e2100dd735e
 ‚
 Rdemodb/src/main/java/com/kafka/demodb/model/response/CheckOtpvSummaryResponse.java,3\1\3155fd7961946294327a87a9df211d80566c4c3c
-x
-Hdemodb/src/main/java/com/kafka/demodb/model/response/BaseDbResponse.java,d\b\db09441139d625fa805546cc48da557344b8972c
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
