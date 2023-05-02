@@ -73,11 +73,11 @@ public class UpdateSecuretuService {
         var check = checkOtpvService.checkOtp(request.getTrxId(),request.getTrxId(),request.getOtp());
         // se otp e corretto updato certifica
         if(check){
-            userCrudService.updateUserPsw(request.getEmail(),"",request.getPsw());
+          var resp =   userCrudService.updateUserPsw(request.getUserKey(),request.getPsw());
             return new BaseDbResponse("OK-00 - Psw changed");
         }
         else{
-            secCounterCrudService.resetCounterEmail(request.getUserKey());
+            secCounterCrudService.updateCounterPsw(request.getUserKey());
             throw new CustomError("Invalid_Otp","InvalidOtp", LocalDateTime.now(), HttpStatus.FORBIDDEN);
         }
     }

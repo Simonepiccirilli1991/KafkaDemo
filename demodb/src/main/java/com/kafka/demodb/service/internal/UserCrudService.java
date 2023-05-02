@@ -63,21 +63,16 @@ public class UserCrudService {
         return new BaseDbResponse("OK-00");
     }
 
-    public BaseDbResponse updateUserPsw(String email, String username, String psw){
+    public BaseDbResponse updateUserPsw(String userkey, String psw){
 
-        var user = userRepo.findByEmail(email);
+        var user = userRepo.findByUserKey(userkey);
 
-        if(user.isEmpty())
+        if(ObjectUtils.isEmpty(user))
             return new BaseDbResponse("ERKO-02","Missing this email on  db", "Generic_Error");
-        try{
 
-            var upUser = user.get();
-            upUser.setPsw(psw);
+        user.setPsw(psw);
 
-            userRepo.save(upUser);
-        }catch(Exception e){
-            return new BaseDbResponse("ERKO-01","Error in updating username user", "Generic_Error");
-        }
+        userRepo.save(user);
         return new BaseDbResponse("OK-00");
     }
 
