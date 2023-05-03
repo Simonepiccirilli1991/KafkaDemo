@@ -1,5 +1,6 @@
 package com.kafka.demodb.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.kafka.demodb.BaseDbTest;
 import com.kafka.demodb.exception.CustomError;
 import com.kafka.demodb.exception.DbErrorHandler;
@@ -186,7 +187,8 @@ public class ItemControllerTest extends BaseDbTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
 
-        var resp1 = mapper.readValue(response,Item.class);
+        var resp1 = mapper.readValue(response, new TypeReference<List<Item>>() {
+        });
 
         var resp = itemService.getItemFilterByMaxPrice(90.00);
 
