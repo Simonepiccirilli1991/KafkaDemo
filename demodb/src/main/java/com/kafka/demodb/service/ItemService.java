@@ -24,8 +24,8 @@ public class ItemService {
 
     public BaseDbResponse addItem(ItemRequest request){
 
-        if(ObjectUtils.isEmpty(request.getPrice())||ObjectUtils.isEmpty(request.getDesctiption())||ObjectUtils.isEmpty(request.getQuantity())
-        ||ObjectUtils.isEmpty(request.getPrice()))
+        if(ObjectUtils.isEmpty(request.getPrice()) || ObjectUtils.isEmpty(request.getDesctiption()) || ObjectUtils.isEmpty(request.getQuantity())
+        || ObjectUtils.isEmpty(request.getName()))
             throw new CustomError("Invalid_Request","Invalid request, missing parameter", LocalDateTime.now(), HttpStatus.BAD_REQUEST);
 
         itemCrudService.saveItem(request);

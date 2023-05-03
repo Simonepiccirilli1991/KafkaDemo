@@ -3,10 +3,7 @@ package com.kafka.demodb;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.kafka.demodb.client.OtpWebClient;
-import com.kafka.demodb.repo.SecCounterRepo;
-import com.kafka.demodb.repo.UserAccRepo;
-import com.kafka.demodb.repo.UserFinancialRepo;
-import com.kafka.demodb.repo.UserSecRepo;
+import com.kafka.demodb.repo.*;
 import com.kafka.demodb.service.*;
 import com.kafka.demodb.service.internal.SecCounterCrudService;
 import com.kafka.demodb.service.internal.UserCrudService;
@@ -44,6 +41,10 @@ public class BaseDbTest {
     protected UpdateSecuretuService updateSecuretuService;
     @Autowired
     protected StatusService statusService;
+    @Autowired
+    protected ItemService itemService;
+    @Autowired
+    protected ItemRepository itemRepository;
     @MockBean
     protected OtpWebClient otpWebClient;
     protected ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
