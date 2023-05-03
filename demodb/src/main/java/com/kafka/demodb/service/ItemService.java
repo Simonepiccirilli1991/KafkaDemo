@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -61,6 +62,12 @@ public class ItemService {
             return itemCrudService.decreaseQuantity(name,quantity);
         else
             return itemCrudService.updateQuantity(name,quantity);
+    }
+
+    public List<Item> getItemFilterByMaxPrice(double price){
+
+        var filteredItem = itemCrudService.getAll().stream().dropWhile(e -> e.getPrice() > price).toList();
+        return filteredItem;
     }
     public record GetItemResponse(String result, Item item, String errMsg){}
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class ItemCrudService {
@@ -64,6 +65,10 @@ public class ItemCrudService {
            itemRepository.save(item);
            return new UpdateQuantitiSummary(name,finalQuant,item.getId(),"OK-00");
        }
+    }
+
+    public List<Item> getAll(){
+        return itemRepository.findAll();
     }
     public record UpdateQuantitiSummary(String name,long quantity,long id, String result){};
 
