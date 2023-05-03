@@ -1,6 +1,4 @@
 
-t
-Ddemodb/src/main/java/com/kafka/demodb/controller/ItemController.java,0\5\054b86feaf8e0491a6103618b9875f945c2a7cf1
 s
 Cdemodb/src/main/java/com/kafka/demodb/controller/PayController.java,8\4\84ae1498261e1a323d4909b3b82da12898910508
 ?
@@ -15,10 +13,6 @@ k
 Tdemodb/src/main/java/com/kafka/demodb/service/internal/UserFinancialCrudService.java,6\2\6220d439e7fb9e57a9e586bf076d36f07cf44b91
 l
 <demodb/src/main/java/com/kafka/demodb/DemodbApplication.java,c\f\cff4356f3cc500608402aeb0e67785fc4029c966
-l
-<demodb/src/main/java/com/kafka/demodb/model/entity/Item.java,6\8\6850b60321cb14dba2a88d914f094745ba71ca4e
-n
->demodb/src/main/java/com/kafka/demodb/repo/ItemRepository.java,9\5\95ff732ab8ce6468c2b2fc12d17f78bb85feeb16
 v
 Fdemodb/src/main/java/com/kafka/demodb/model/entity/UserFinalncial.java,6\9\696f8c6052891f0884626d21a449527511709872
 y
@@ -29,8 +23,6 @@ w
 Gdemodb/src/main/java/com/kafka/demodb/model/entity/SecurityCounter.java,c\5\c50637d355d6f33542d1cad6a7abf36c79baab5f
 n
 >demodb/src/main/java/com/kafka/demodb/repo/SecCounterRepo.java,a\c\ac4668b894c674c866d21341e8b106893e0d2d8d
-{
-Kdemodb/src/main/java/com/kafka/demodb/service/internal/ItemCrudService.java,b\d\bd240ca2aeb28cd19a012e452e15e35c36cd85f8
 j
 :otpv/src/main/java/com/kafka/otpv/exception/OtpvError.java,d\8\d8d21e823562f2b06979a8b5d86cb8823c0f853b
 q

@@ -10,6 +10,6 @@ import java.util.Optional;
 public interface ItemRepository extends JpaRepository<Item, Long> {
 
     Item findItemByName(String name);
-    Item findItemByDesctiption(String name);
+    Item findItemByDesctiption(String description);
 
 }
