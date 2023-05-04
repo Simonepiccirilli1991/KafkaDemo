@@ -5,12 +5,10 @@ import com.kafka.demo.model.response.BaseBankResponse;
 import com.kafka.demo.model.response.StatusResponse;
 import com.kafka.demo.service.BankAccService;
 import com.kafka.demo.service.StatusBankService;
+import com.kafka.demo.service.AddAmountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/bank")
@@ -21,6 +19,8 @@ public class BankAccController {
     BankAccService bankAccService;
     @Autowired
     StatusBankService statusBankService;
+    @Autowired
+    AddAmountService addAmountService;
 
 
     @PostMapping("/register")
@@ -36,5 +36,12 @@ public class BankAccController {
     @PostMapping("/status")
     public ResponseEntity<StatusResponse> status(@RequestBody String userKey){
         return ResponseEntity.ok(statusBankService.getBankStatus(userKey));
+    }
+
+    @PostMapping("/amount")
+    public ResponseEntity<AddAmountService.AmountResponse> amountAcc(@RequestParam ("userkey") String userKey,
+                                                                     @RequestParam ("amount") Double amount,
+                                                                     @RequestParam ("remove") Boolean isRemove){
+        return ResponseEntity.ok(addAmountService.add_removeAmount(userKey,amount,isRemove));
     }
 }

@@ -6,12 +6,12 @@ import org.springframework.http.HttpStatus;
 @Data
 public class CustomExcept extends RuntimeException{
 
-    private String cause;
+    private String caused;
     private String msg;
     private HttpStatus status;
 
-    public CustomExcept(String cause, String msg, HttpStatus status) {
-        this.cause = cause;
+    public CustomExcept(String caused, String msg, HttpStatus status) {
+        this.caused = caused;
         this.msg = msg;
         this.status = status;
     }

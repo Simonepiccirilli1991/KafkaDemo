@@ -20,9 +20,18 @@ public class StatusBankService {
 
     public StatusResponse getBankStatus(String userKey){
 
-        var resp = bankAccCrudService.getBankAccByUserKey(userKey);
-        if(ObjectUtils.isEmpty(resp))
-            return new StatusResponse(true);
+        BankAccCrudService.GetBankAccSummaryFilter resp;
+        // porcata fatta per non modificare il metodo chiamato
+        try {
+             resp = bankAccCrudService.getBankAccByUserKey(userKey);
+        }catch(CustomExcept e){
+            if(e.getCaused().equals("bank now found"))
+                return new StatusResponse(true);
+            else
+                throw e;
+        }
+
+
         // non e possibile che esista solo 1 dei 2, se si lancaire eccezzione
         var iResp = bankAccSicCrudService.getBankAccSIcByUserKey(userKey);
         if(ObjectUtils.isEmpty(iResp))

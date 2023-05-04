@@ -1,6 +1,5 @@
 package com.kafka.demo.model.entity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -10,6 +9,8 @@ import java.time.LocalDateTime;
 @Table(name ="bank_account")
 public class BankAccount {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String userKey;
     private int accNumber;

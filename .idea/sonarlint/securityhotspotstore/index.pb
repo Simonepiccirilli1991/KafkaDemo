@@ -50,8 +50,6 @@ s
 Cotpv/src/test/java/com/kafka/otpv/service/GenerateCheckOtpTest.java,5\c\5c2c89e74d2ff25c17a2a9ab44fc05397038166c
 z
 Jdemodb/src/main/java/com/kafka/demodb/model/request/RetrivePswRequest.java,4\a\4a3d7dca2f937ca46c1b0efdf38448444a8ae819
-l
-<demodb/src/main/java/com/kafka/demodb/model/entity/Item.java,6\8\6850b60321cb14dba2a88d914f094745ba71ca4e
 n
 >demodb/src/main/java/com/kafka/demodb/repo/ItemRepository.java,9\5\95ff732ab8ce6468c2b2fc12d17f78bb85feeb16
 t

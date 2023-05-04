@@ -7,6 +7,8 @@
         <option value="$PROJECT_DIR$/demodb/pom.xml" />
         <option value="$PROJECT_DIR$/demoorc/pom.xml" />
         <option value="$PROJECT_DIR$/otpv/pom.xml" />
+        <option value="$PROJECT_DIR$/orc/pom.xml" />
+        <option value="$PROJECT_DIR$/cache/pom.xml" />
       </list>
     </option>
   </component>

@@ -14,7 +14,7 @@ public class ExceptHandler {
     public ResponseEntity<ErrorExc> expcHandler(CustomExcept ex){
 
         ErrorExc resp = new ErrorExc();
-        resp.setCause(ex.getCause());
+        resp.setCause(ex.getCaused());
         resp.setMsg(ex.getMsg());
         resp.setData(LocalDateTime.now());
 

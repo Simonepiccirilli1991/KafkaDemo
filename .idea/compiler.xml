@@ -7,23 +7,29 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="demoorc" />
+        <module name="orc" />
+        <module name="cache" />
         <module name="demo" />
         <module name="demodb" />
         <module name="otpv" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="cache" target="20" />
       <module name="demo" target="20" />
       <module name="demodb" target="20" />
       <module name="demoorc" target="20" />
+      <module name="orc" target="20" />
       <module name="otpv" target="20" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cache" options="-parameters" />
       <module name="demo" options="-parameters" />
       <module name="demodb" options="-parameters" />
       <module name="demoorc" options="-parameters" />
+      <module name="orc" options="-parameters" />
       <module name="otpv" options="-parameters" />
     </option>
   </component>

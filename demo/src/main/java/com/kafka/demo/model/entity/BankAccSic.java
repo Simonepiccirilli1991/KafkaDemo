@@ -1,7 +1,6 @@
 package com.kafka.demo.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -9,6 +8,8 @@ import lombok.Data;
 @Table(name = "bank_acc_sic")
 public class BankAccSic {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String userKey;
     private int accNumber;

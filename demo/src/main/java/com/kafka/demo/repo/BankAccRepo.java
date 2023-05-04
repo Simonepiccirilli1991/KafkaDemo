@@ -15,10 +15,10 @@ public interface BankAccRepo extends JpaRepository<BankAccount,Long> {
     BankAccount findByUserKey(String userKey);
     Optional<BankAccount> findByAccNumber(int accNumber);
 
-    @Query(value = "SELECT * FROM bank_account WHERE bank_account.nome = : nome")
+    @Query(value = "SELECT * FROM bank_account WHERE bank_account.nome = :nome",nativeQuery = true)
     List<BankAccount> findAllByName(@Param("nome") String nome);
 
-    @Query(value = "SELECT * FROM  bank_account WHERE  bank_account.email = :email",
+    @Query(value = "SELECT * FROM bank_account WHERE bank_account.email = :email",
             nativeQuery = true)
     Optional<BankAccount> findByEmail(@Param("email") String email);
 }
