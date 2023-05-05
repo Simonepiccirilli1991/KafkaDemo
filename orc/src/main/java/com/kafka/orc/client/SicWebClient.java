@@ -1,7 +1,10 @@
 package com.kafka.orc.client;
 
 import com.kafka.orc.error.OrcError;
-import com.kafka.orc.model.fragment.request.UserRequest;
+import com.kafka.orc.model.fragment.request.CertifyMailSicRequest;
+import com.kafka.orc.model.fragment.request.ChangePswSicRequest;
+import com.kafka.orc.model.fragment.request.RetrivePswRequest;
+import com.kafka.orc.model.fragment.request.UserSicRequest;
 import com.kafka.orc.model.fragment.response.BaseDbResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,26 +19,64 @@ public class SicWebClient {
     @Autowired
     WebClient webClient;
 
-    @Value("${config.sic.url-get}")
-    private String baseUrlUserSic; //localhost:8081/api/v1/user
-    @Value("${config.sic.path-get}")
-    private String apiPathRegister; // /register
+    @Value("${config.sic.url-user-sic}")
+    private String baseUrlUserSic; //localhost:8081/api/v1/securety
+    @Value("${config.sic.path-ceritfy}")
+    private String apiPathCertify; // /cetify
+    @Value("${config.sic.path-change}")
+    private String apiPathChange; // /change
+    @Value("${config.sic.path-retrive}")
+    private String apiPathRetrive; // /retrive   -- retrive psw
 
 
     private final Logger logger = LogManager.getLogger(SicWebClient.class);
 
-    public BaseDbResponse registerSic(UserRequest request) {
+    public BaseDbResponse cerityUserSic(CertifyMailSicRequest request) {
 
-        logger.debug("Calling register UserSic service");
+        logger.debug("Calling cetify UserSic service");
 
         var resp =  webClient.post()
-                .uri(baseUrlUserSic + apiPathRegister)
+                .uri(baseUrlUserSic + apiPathCertify)
                 .bodyValue(request)
                 .retrieve()
                 .bodyToMono(BaseDbResponse.class)
                 .onErrorMap(e -> {
-                    logger.error("Error on register User with error: ", e.getMessage());
-                    throw new OrcError("Generic Error", "PI_MS_5000: Generic error","UserRegKO-01");
+                    logger.error("Error on cetify User with error: ", e.getMessage());
+                    throw new OrcError("Generic Error", "PI_MS_5000: Generic error","UserCertKO-01");
+                });
+
+        return resp.block();
+    }
+
+    public BaseDbResponse changePsw(ChangePswSicRequest request) {
+
+        logger.debug("Calling changePsw UserSic service");
+
+        var resp =  webClient.post()
+                .uri(baseUrlUserSic + apiPathChange)
+                .bodyValue(request)
+                .retrieve()
+                .bodyToMono(BaseDbResponse.class)
+                .onErrorMap(e -> {
+                    logger.error("Error on changePsw User with error: ", e.getMessage());
+                    throw new OrcError("Generic Error", "PI_MS_5000: Generic error","UserChangeKO-01");
+                });
+
+        return resp.block();
+    }
+
+    public BaseDbResponse retrivePsw(RetrivePswRequest request) {
+
+        logger.debug("Calling retrivePsw UserSic service");
+
+        var resp =  webClient.post()
+                .uri(baseUrlUserSic + apiPathRetrive)
+                .bodyValue(request)
+                .retrieve()
+                .bodyToMono(BaseDbResponse.class)
+                .onErrorMap(e -> {
+                    logger.error("Error on retrivePsw User with error: ", e.getMessage());
+                    throw new OrcError("Generic Error", "PI_MS_5000: Generic error","UserRetriveKO-01");
                 });
 
         return resp.block();

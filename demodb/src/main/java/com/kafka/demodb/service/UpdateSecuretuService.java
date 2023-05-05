@@ -54,7 +54,7 @@ public class UpdateSecuretuService {
         }
         else{
             secCounterCrudService.resetCounterEmail(userKey);
-            throw new CustomError("Invalid_Otp","InvalidOtp", LocalDateTime.now(), HttpStatus.FORBIDDEN);
+            return new BaseDbResponse("KO-00","InvalidOtp", "Invalid_Otp");
         }
     }
 
@@ -78,7 +78,7 @@ public class UpdateSecuretuService {
         }
         else{
             secCounterCrudService.updateCounterPsw(request.getUserKey());
-            throw new CustomError("Invalid_Otp","InvalidOtp", LocalDateTime.now(), HttpStatus.FORBIDDEN);
+            return new BaseDbResponse("KO-00","InvalidOtp", "Invalid_Otp");
         }
     }
 
@@ -98,7 +98,7 @@ public class UpdateSecuretuService {
         }
         else{
             secCounterCrudService.updateCounterMail(request.getUserKey());
-            throw new CustomError("Invalid_Otp","InvalidOtp", LocalDateTime.now(), HttpStatus.FORBIDDEN);
+            return new BaseDbResponse("KO-00","InvalidOtp", "Invalid_Otp");
         }
     }
 }

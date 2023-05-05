@@ -29,8 +29,6 @@ j
 Notpv/src/main/java/com/kafka/otpv/model/response/CheckOtpvSummaryResponse.java,3\1\31c37f7c990340e8b6e6d48ade4cbf63dde5f2bb
 x
 Hotpv/src/main/java/com/kafka/otpv/model/request/GenerateOtpvRequest.java,3\f\3f21012965399dc0668332ab18da6bc416c323e5
-{
-Kdemodb/src/main/java/com/kafka/demodb/model/request/CertifyMailRequest.java,0\b\0b4a759d22cdbd9feb978595d55c96adc0b69c6c
 |
 Ldemodb/src/main/java/com/kafka/demodb/service/fragment/CheckOtpvService.java,b\8\b819e25db0759e840336f1c877639faeef7c431c
 p
@@ -46,8 +44,6 @@ n
 >demodb/src/main/java/com/kafka/demodb/client/OtpWebClient.java,c\3\c3fc46c398eed218af4bfc9d7b279be2837bdc78
 s
 Cotpv/src/test/java/com/kafka/otpv/service/GenerateCheckOtpTest.java,5\c\5c2c89e74d2ff25c17a2a9ab44fc05397038166c
-z
-Jdemodb/src/main/java/com/kafka/demodb/model/request/RetrivePswRequest.java,4\a\4a3d7dca2f937ca46c1b0efdf38448444a8ae819
 n
 >demodb/src/main/java/com/kafka/demodb/repo/ItemRepository.java,9\5\95ff732ab8ce6468c2b2fc12d17f78bb85feeb16
 s

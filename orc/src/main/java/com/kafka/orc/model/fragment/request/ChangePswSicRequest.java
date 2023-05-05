@@ -3,10 +3,11 @@ package com.kafka.orc.model.fragment.request;
 import lombok.Data;
 
 @Data
-public class UserSicRequest {
+public class ChangePswSicRequest {
 
-    private String userKey;
-    private String username;
+    private String trxId;
+    private String otp;
     private String email;
+    private String userKey;
     private String psw;
 }
