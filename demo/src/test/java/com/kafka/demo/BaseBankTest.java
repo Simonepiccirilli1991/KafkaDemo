@@ -1,5 +1,7 @@
 package com.kafka.demo;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.kafka.demo.repo.BankAccRepo;
 import com.kafka.demo.repo.BankAccSicRepo;
 import com.kafka.demo.service.AddAmountService;
@@ -19,4 +21,6 @@ public class BaseBankTest {
     protected StatusBankService statusBankService;
     @Autowired
     protected AddAmountService addAmountService;
+
+    protected ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
 }

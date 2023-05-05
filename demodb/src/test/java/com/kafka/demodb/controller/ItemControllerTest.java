@@ -2,7 +2,6 @@ package com.kafka.demodb.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.kafka.demodb.BaseDbTest;
-import com.kafka.demodb.exception.CustomError;
 import com.kafka.demodb.exception.DbErrorHandler;
 import com.kafka.demodb.model.entity.Item;
 import com.kafka.demodb.model.request.ItemRequest;
@@ -19,7 +18,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest

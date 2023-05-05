@@ -12,6 +12,9 @@ public class StatusResponse {
     private BankAccCrudService.GetBankAccSummaryFilter bankAccInfo;
     private BankAccSicCrudService.BankAccSicFilter bankAccSicInfo;
 
+    public StatusResponse(){
+
+    }
     public StatusResponse(Boolean notPresent) {
         this.notPresent = notPresent;
     }
