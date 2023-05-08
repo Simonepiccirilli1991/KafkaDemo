@@ -37,7 +37,7 @@ public class BankAccService {
         if(iResp.getIsError())
             return resp;
 
-        return new BaseBankResponse("BankAccSic registered","Account created",false);
+        return new BaseBankResponse("BankAccSic registered","Account created",false, accNumber);
     }
 
 
