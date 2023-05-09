@@ -24,7 +24,7 @@ public class RegistrationService {
 
 
         var userKey = (ObjectUtils.isEmpty(request.getUserKey())) ? "userDefault" : request.getUserKey();
-        if(userKey.equals("userDefault")) {
+        if(!userKey.equals("userDefault")) {
             var us = userService.statusUserSic(userKey);
             if(ObjectUtils.isEmpty(us))
                 throw new OrcError("Already Exist","User already exist","RegisterKO-01");
@@ -36,18 +36,18 @@ public class RegistrationService {
 
         var resp = userService.registerUser(iReq);
 
-        var userKye = resp.getUserKey();
+        var finalUserKet = resp.getUserKey();
         // adesso dovrei creare la parte di bank , poi logga e certifica
 
         UserAccRequest eRequest = new UserAccRequest();
         eRequest.setEmail(request.getEmail());
         eRequest.setNome(request.getUsername());
         eRequest.setCognome(request.getCognome());
-        eRequest.setUserKey(userKye);
+        eRequest.setUserKey(finalUserKet);
 
         var iResp = bankUserService.registerUser(eRequest);
 
 
-        return new RegisterResponse(userKey, iResp.getAccNumber());
+        return new RegisterResponse(finalUserKet, iResp.getAccNumber());
     }
 }

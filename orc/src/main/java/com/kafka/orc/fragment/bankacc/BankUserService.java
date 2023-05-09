@@ -8,6 +8,7 @@ import com.kafka.orc.model.fragment.response.BaseBankResponse;
 import com.kafka.orc.model.fragment.response.BaseDbResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 @Service
 public class BankUserService {
@@ -18,7 +19,7 @@ public class BankUserService {
     public BaseBankResponse registerUser(UserAccRequest request){
 
         var resp = bankAccWebClient.registerBankUser(request);
-        if(resp.getIsError())
+        if(ObjectUtils.isEmpty(resp.getIsError()) || resp.getIsError())
             throw new OrcError(resp.getResult(),resp.getMsg(),"UserBankRegKO-02");
 
         return resp;
