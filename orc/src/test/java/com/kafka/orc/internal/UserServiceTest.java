@@ -151,4 +151,6 @@ public class UserServiceTest extends BaseOrcTest {
         assert ex.getCaused().equals("User not found");
         assert ex.getErrId().equals("UserGetByKO-02");
     }
+
+
 }

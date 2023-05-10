@@ -184,8 +184,6 @@ c
 3orc/src/main/java/com/kafka/orc/error/ErrorDto.java,8\5\853d53b273336364fa30446c09be7f5e389e5c5b
 i
 9orc/src/main/java/com/kafka/orc/service/LoginService.java,1\d\1d9199075d1acd53abbc0d38a1e7fd2ada63523e
-t
-Dorc/src/main/java/com/kafka/orc/fragment/usersic/UserSicService.java,1\d\1d893d2edf2554f3fcd4eaea996bbbeaf755ec1e
 k
 ;orc/src/main/java/com/kafka/orc/service/CertifyService.java,4\9\49f8ccaf0de54e129df7a6536a0eee96bf3f1718
 j

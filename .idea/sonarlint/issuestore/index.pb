@@ -180,8 +180,6 @@ c
 3orc/src/main/java/com/kafka/orc/error/ErrorDto.java,8\5\853d53b273336364fa30446c09be7f5e389e5c5b
 m
 =demo/src/main/java/com/kafka/demo/service/BankAccService.java,c\d\cdbb5c99c1f3a9a1245bb5da1e5ce3c436c0cab1
-t
-Dorc/src/main/java/com/kafka/orc/fragment/usersic/UserSicService.java,1\d\1d893d2edf2554f3fcd4eaea996bbbeaf755ec1e
 h
 8orc/src/main/java/com/kafka/orc/client/SicWebClient.java,a\9\a9e1b71e0ddf8833b5e722ef3173b2f4a24a76f6
 i
