@@ -190,8 +190,6 @@ j
 :orc/src/main/java/com/kafka/orc/service/StatusService.java,3\9\3988066c4bdb556894ab22fcc0bfd7f20cd41508
 `
 0orc/src/test/java/com/kafka/orc/BaseOrcTest.java,b\e\be2b1a7304e0bd4c7050311b1944c736735b49f3
-u
-Eorc/src/main/java/com/kafka/orc/fragment/bankacc/BankUserService.java,1\b\1bc5ef17828bdc659532f0596b869d94522c930b
 {
 Korc/src/main/java/com/kafka/orc/model/fragment/response/BaseDbResponse.java,5\8\586a17e9a614f785ee082b8a38c99d0cb64ef77a
 ;
