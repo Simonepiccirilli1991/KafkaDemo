@@ -29,7 +29,7 @@ public class UserService {
 
         var resp = userWebClient.checkPinUser(request);
         if(!resp.getResult().equals("OK-00"))
-            throw new OrcError(resp.getErrType(),resp.getErrMsg(),"UserRegKO-02");
+            throw new OrcError(resp.getErrType(),resp.getErrMsg(),"UserCheckKO-02");
 
         return resp;
     }
@@ -47,7 +47,7 @@ public class UserService {
     public GetUserByUsernResponse getUserByUsername(String username){
 
         var resp = userWebClient.getUserByUsername(username);
-        if(ObjectUtils.isEmpty(resp))
+        if(ObjectUtils.isEmpty(resp) || ObjectUtils.isEmpty(resp.getUserKey()))
             throw new OrcError("User not found","Username provided are not valid, not user associated","UserGetByKO-02");
 
         return resp;

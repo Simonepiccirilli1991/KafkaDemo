@@ -1,6 +1,7 @@
 package com.kafka.orc.service;
 
 import com.kafka.orc.BaseOrcTest;
+import com.kafka.orc.error.OrcError;
 import com.kafka.orc.model.fragment.response.BaseBankResponse;
 import com.kafka.orc.model.fragment.response.BaseDbResponse;
 import com.kafka.orc.model.fragment.response.StatusSicResponse;
@@ -8,6 +9,8 @@ import com.kafka.orc.model.request.RegisterRequest;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 public class RegisterServiceTest extends BaseOrcTest {
@@ -40,6 +43,31 @@ public class RegisterServiceTest extends BaseOrcTest {
         var response = registrationService.registerUT(request);
 
         assert response.userAccNumber() == 12345;
-        assert  response.userKey().equals("userKey1");
+        assert response.userKey().equals("userKey1");
+    }
+
+    @Test
+    void registerUserTestKO(){
+
+        StatusSicResponse statusResp = new StatusSicResponse();
+        statusResp.setUserKey("userKey");
+
+        Mockito.when(userWebClient.statusSic(Mockito.any())).thenReturn(statusResp);
+
+        RegisterRequest request = new RegisterRequest();
+        request.setCognome("cognome");
+        request.setPsw("psw1");
+        request.setEmail("email@mail");
+        request.setUsername("user1");
+        request.setType("debit");
+        request.setUserKey("userExist");
+
+        OrcError ex = assertThrows(OrcError.class, () -> {
+            var response = registrationService.registerUT(request);
+        });
+
+        assert ex.getCaused().equals("Already Exist");
+        assert ex.getErrId().equals("RegisterKO-01");
+        assert ex.getMsg().equals("User already exist");
     }
 }

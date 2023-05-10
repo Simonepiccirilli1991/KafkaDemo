@@ -26,7 +26,7 @@ public class RegistrationService {
         var userKey = (ObjectUtils.isEmpty(request.getUserKey())) ? "userDefault" : request.getUserKey();
         if(!userKey.equals("userDefault")) {
             var us = userService.statusUserSic(userKey);
-            if(ObjectUtils.isEmpty(us))
+            if(!ObjectUtils.isEmpty(us.getUserKey())) // la status se user non esiste torna oggetto vuoto
                 throw new OrcError("Already Exist","User already exist","RegisterKO-01");
         }
         UserSicRequest iReq = new UserSicRequest();
