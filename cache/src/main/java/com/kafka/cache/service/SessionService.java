@@ -68,7 +68,21 @@ public class SessionService {
         return new GetSession(session);
     }
 
+    public Boolean checkSessionValid(String sessionId){
+
+        var session = sessionService.get(sessionId);
+
+        if(ObjectUtils.isEmpty(session))
+            throw new SessionError("Error on get session", "Session don't exist");
+
+        if(ObjectUtils.isEmpty(session.getUpdate()))
+            return session.getCreationDate().plusMinutes(10).isAfter(LocalDateTime.now()); // se e valido torna true se
+        else
+            return session.getUpdateTime().plusMinutes(10).isAfter(LocalDateTime.now());
+    }
+
     public record SessionCreateResp(String sessionId, Boolean created){}
     public record SessionUpdate(String sessionId,Boolean updated){}
     public record GetSession(SicSession session){}
+    public record SessionResponse(Boolean success){}
 }
