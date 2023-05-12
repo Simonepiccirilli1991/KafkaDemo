@@ -5,12 +5,9 @@ import com.kafka.cache.model.request.SessionRequest;
 import com.kafka.cache.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
-
-import static org.springframework.web.servlet.function.RequestPredicates.headers;
 
 @RestController
 @RequestMapping("api/v1/session")
@@ -19,7 +16,7 @@ public class SessionController {
     @Autowired
     SessionService sessionService;
 
-    @PostMapping("create")
+    @PostMapping("/create")
     public ResponseEntity<SessionService.SessionResponse> createSession(@RequestBody SessionRequest request){
 
         var resp = sessionService.createSession(request);
@@ -29,7 +26,7 @@ public class SessionController {
         return ResponseEntity.ok().headers(header).body(new SessionService.SessionResponse(resp.created()));
     }
 
-    @PostMapping("update")
+    @PostMapping("/update")
     public ResponseEntity<SessionService.SessionResponse> updateSession(@RequestHeader HttpHeaders header){
 
         if(ObjectUtils.isEmpty(header.getFirst("sessionId")))
@@ -39,13 +36,13 @@ public class SessionController {
 
         return ResponseEntity.ok().body(new SessionService.SessionResponse(resp.updated()));
     }
-    @GetMapping("getsession/{sessionID}")
+    @GetMapping("/getsession/{sessionID}")
     public ResponseEntity<SessionService.GetSession> getSession(@PathVariable ("sessionID") String sessionId){
 
         return ResponseEntity.ok(sessionService.getSession(sessionId));
     }
 
-    @PostMapping("check/session")
+    @PostMapping("/check/session")
     public ResponseEntity<Boolean> checkSessionValid(@RequestHeader HttpHeaders headers){
 
         if(ObjectUtils.isEmpty(headers.getFirst("sessionId")))

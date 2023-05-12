@@ -31,8 +31,6 @@ x
 Hotpv/src/main/java/com/kafka/otpv/model/request/GenerateOtpvRequest.java,3\f\3f21012965399dc0668332ab18da6bc416c323e5
 |
 Ldemodb/src/main/java/com/kafka/demodb/service/fragment/CheckOtpvService.java,b\8\b819e25db0759e840336f1c877639faeef7c431c
-p
-@otpv/src/main/java/com/kafka/otpv/controller/OtpvController.java,a\0\a04644cd73649c848c059ca5a3ceeecaaa0ee24c
 ‚
 Rdemodb/src/main/java/com/kafka/demodb/model/response/CheckOtpvSummaryResponse.java,3\1\3155fd7961946294327a87a9df211d80566c4c3c
 n
