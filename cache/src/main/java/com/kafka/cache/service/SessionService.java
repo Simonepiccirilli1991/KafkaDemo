@@ -32,7 +32,8 @@ public class SessionService {
         try {
             sessionService.insert(idSess, session);
         }catch (Exception e){
-            throw new SessionError("Error on creating session", e.getMessage());
+            var msg = (!ObjectUtils.isEmpty(e.getMessage())) ? e.getMessage() : "Generic_Error";
+            throw new SessionError("Error on creating session", msg);
         }
         return new SessionCreateResp(idSess,true);
     }
