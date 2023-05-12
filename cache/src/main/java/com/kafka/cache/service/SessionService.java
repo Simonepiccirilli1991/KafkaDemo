@@ -74,9 +74,9 @@ public class SessionService {
         var session = sessionService.get(sessionId);
 
         if(ObjectUtils.isEmpty(session))
-            throw new SessionError("Error on get session", "Session don't exist");
+            throw new SessionError("Error on get on check session", "Session don't exist");
 
-        if(ObjectUtils.isEmpty(session.getUpdate()))
+        if(ObjectUtils.isEmpty(session.getUpdate()) || session.getUpdate() == false)
             return session.getCreationDate().plusMinutes(10).isAfter(LocalDateTime.now()); // se e valido torna true se
         else
             return session.getUpdateTime().plusMinutes(10).isAfter(LocalDateTime.now());
