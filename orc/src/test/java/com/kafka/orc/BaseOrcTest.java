@@ -1,17 +1,21 @@
 package com.kafka.orc;
 
 import com.kafka.orc.client.BankAccWebClient;
+import com.kafka.orc.client.CacheWebClient;
 import com.kafka.orc.client.SicWebClient;
 import com.kafka.orc.client.UserWebClient;
 import com.kafka.orc.fragment.bankacc.BankUserService;
 import com.kafka.orc.fragment.usersic.UserService;
 import com.kafka.orc.fragment.usersic.UserSicService;
+import com.kafka.orc.service.LoginService;
 import com.kafka.orc.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 public class BaseOrcTest {
 
+    @Autowired
+    protected LoginService loginService;
     @Autowired
     protected RegistrationService registrationService;
     @Autowired
@@ -26,4 +30,6 @@ public class BaseOrcTest {
     protected UserWebClient userWebClient;
     @MockBean
     protected SicWebClient sicWebClient;
+    @MockBean
+    protected CacheWebClient cacheWebClient;
 }

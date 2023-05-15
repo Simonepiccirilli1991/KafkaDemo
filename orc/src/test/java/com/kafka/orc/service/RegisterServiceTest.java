@@ -50,7 +50,7 @@ public class RegisterServiceTest extends BaseOrcTest {
     void registerUserTestKO(){
 
         StatusSicResponse statusResp = new StatusSicResponse();
-        statusResp.setUserKey("userKey");
+        statusResp.setRegistered(true);
 
         Mockito.when(userWebClient.statusSic(Mockito.any())).thenReturn(statusResp);
 

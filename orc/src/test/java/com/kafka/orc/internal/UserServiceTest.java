@@ -111,15 +111,16 @@ public class UserServiceTest extends BaseOrcTest {
     void statusTestOK(){
 
         StatusSicResponse statusResp = new StatusSicResponse();
-        statusResp.setUserKey("userKey");
-        statusResp.setEmail("mail");
+        statusResp.setResponse("OK-00");
+        statusResp.setRegistered(true);
+        statusResp.setCertified(false);
 
         Mockito.when(userWebClient.statusSic(Mockito.any())).thenReturn(statusResp);
 
         var resp = userService.statusUserSic("");
 
-        assert  resp.getUserKey().equals("userKey");
-        assert  resp.getEmail().equals("mail");
+        assert  resp.getRegistered() == true;
+        assert  resp.getCertified() == false;
     }
 
     @Test
