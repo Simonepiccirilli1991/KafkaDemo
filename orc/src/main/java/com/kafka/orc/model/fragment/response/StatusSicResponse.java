@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class StatusSicResponse {
 
-    private String email;
-    private String username;
-    private String userKey;
+    private String response;
+    private Boolean registered;
+    private Boolean certified;
 }

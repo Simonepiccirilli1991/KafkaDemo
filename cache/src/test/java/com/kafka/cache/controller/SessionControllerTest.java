@@ -3,7 +3,6 @@ package com.kafka.cache.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.kafka.cache.error.CacheError;
-import com.kafka.cache.error.SessionError;
 import com.kafka.cache.model.SicSession;
 import com.kafka.cache.model.request.SessionRequest;
 import com.kafka.cache.service.SessionCacheService;
@@ -18,7 +17,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest

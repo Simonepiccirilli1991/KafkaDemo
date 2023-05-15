@@ -1,7 +1,10 @@
 package com.kafka.orc.controller;
 
+import com.kafka.orc.model.request.LoginRequest;
 import com.kafka.orc.model.request.RegisterRequest;
+import com.kafka.orc.model.response.LoginResponse;
 import com.kafka.orc.model.response.RegisterResponse;
+import com.kafka.orc.service.LoginService;
 import com.kafka.orc.service.RegistrationService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +21,16 @@ public class UserController {
 
 
     private final RegistrationService registrationService;
+    private final LoginService loginService;
 
     @PostMapping("/register")
     public ResponseEntity<RegisterResponse> registerUser(@RequestBody RegisterRequest request){
         return ResponseEntity.ok(registrationService.registerUT(request));
+    }
+
+    @PostMapping("login")
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request){
+        return ResponseEntity.ok(loginService.login(request));
     }
 
 }
