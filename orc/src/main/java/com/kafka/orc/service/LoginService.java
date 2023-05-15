@@ -1,6 +1,7 @@
 package com.kafka.orc.service;
 
 import com.kafka.orc.constants.Action;
+import com.kafka.orc.fragment.session.UserSessionService;
 import com.kafka.orc.fragment.usersic.UserService;
 import com.kafka.orc.model.fragment.request.UserSicRequest;
 import com.kafka.orc.model.request.LoginRequest;
@@ -14,8 +15,10 @@ public class LoginService {
 
     @Autowired
     UserService userService;
+    @Autowired
+    UserSessionService userSessionService;
 
-    public LoginResponse login(LoginRequest request){
+    public LoginPreResponse login(LoginRequest request){
 
         // puo loggare con tutti e 2, se logga co username famo na chiamata in piu
         //caso userKey
@@ -30,14 +33,14 @@ public class LoginService {
             userService.checkPinUser(iRequest);
 
             // chiamata per creazione sessione.
-
+            var session = userSessionService.createSession(id).sessionId();
             // chiamata a status per vedere che deve fare. certify o checkOtp
             var status = userService.statusUserSic(id);
             //certificato sendOtp
             if(status.getCertified())
-                return new LoginResponse(id, Action.SENDOTP);
+                return new LoginPreResponse(id, Action.SENDOTP,session);
             else
-                return new LoginResponse(id,Action.CERTIFY);
+                return new LoginPreResponse(id,Action.CERTIFY,session);
         //caso username
         }else{
             var userKey = userService.getUserByUsername(request.getUsername()).getUserKey();
@@ -49,14 +52,17 @@ public class LoginService {
             userService.checkPinUser(iRequest);
 
             // chiamata per creazione sessione.
+            var session = userSessionService.createSession(userKey).sessionId();
 
             // chiamata a status per vedere che deve fare. certify o checkOtp
             var status = userService.statusUserSic(userKey);
             //certificato sendOtp
             if(status.getCertified())
-                return new LoginResponse(userKey, Action.SENDOTP);
+                return new LoginPreResponse(userKey,Action.SENDOTP,session);
             else
-                return new LoginResponse(userKey,Action.CERTIFY);
+                return new LoginPreResponse(userKey,Action.CERTIFY,session);
         }
     }
+
+    public record LoginPreResponse (String userKey, Action action,String sessionId){}
 }

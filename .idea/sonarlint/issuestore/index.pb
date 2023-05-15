@@ -110,8 +110,6 @@ Gdemo/src/test/java/com/kafka/demo/controller/BankAccControllerTest.java,2\3\23
 demodb/pom.xml,f\a\fa245f6a01ab40dc44efa9ec358c7b8693907e8f
 i
 9orc/src/main/java/com/kafka/orc/client/OtpvWebClient.java,c\4\c413000f8e5542b45777b943b5689e5fc03a9024
-j
-:orc/src/main/java/com/kafka/orc/client/CacheWebClient.java,4\e\4e56a090716d453af938adf92c8534e63ce8b59d
 q
 Aorc/src/main/java/com/kafka/orc/config/PrometheusMeterConfig.java,c\1\c199f21a8a53c9cdd226149b653c753b28f979db
 s
@@ -172,8 +170,6 @@ c
 3orc/src/main/java/com/kafka/orc/error/ErrorDto.java,8\5\853d53b273336364fa30446c09be7f5e389e5c5b
 m
 =demo/src/main/java/com/kafka/demo/service/BankAccService.java,c\d\cdbb5c99c1f3a9a1245bb5da1e5ce3c436c0cab1
-h
-8orc/src/main/java/com/kafka/orc/client/SicWebClient.java,a\9\a9e1b71e0ddf8833b5e722ef3173b2f4a24a76f6
 k
 ;orc/src/main/java/com/kafka/orc/service/CertifyService.java,4\9\49f8ccaf0de54e129df7a6536a0eee96bf3f1718
 j
@@ -210,8 +206,6 @@ o
 ?otpv/src/main/java/com/kafka/otpv/service/OtpvCacheService.java,e\c\ec436838b8c7ea40fba1c320aa9912744cec0929
 r
 Bcache/src/main/java/com/kafka/cache/config/SessionHazelConfig.java,e\b\eb245930948b2b29fe2c50bd8027bdf9c8ad2d83
-u
-Ecache/src/main/java/com/kafka/cache/model/request/SessionRequest.java,3\9\3949b330a3961f3c5671043464392e64697893df
 <
 otpv/pom.xml,3\d\3dbaadfd1e2ef03022e49611d49991e97e049487
 =
@@ -232,10 +226,6 @@ p
 @otpv/src/main/java/com/kafka/otpv/controller/OtpvController.java,a\0\a04644cd73649c848c059ca5a3ceeecaaa0ee24c
 y
 Icache/src/test/java/com/kafka/cache/controller/SessionControllerTest.java,9\f\9f6f781a9079b19e4837e3646243b40123868338
-u
-Ecache/src/main/java/com/kafka/cache/controller/SessionController.java,6\5\65f5386b6f2640e56ef1f935dad0ec91dc934123
-o
-?cache/src/main/java/com/kafka/cache/service/SessionService.java,7\2\72c601e08df4e382b83b27ad164e32777f2ebf05
 p
 @otpv/src/test/java/com/kafka/otpv/controller/ControllerTest.java,5\0\50a9f427c4d66b52f11cf070233b7b11cdfc1b01
 s
@@ -256,5 +246,3 @@ i
 9orc/src/main/java/com/kafka/orc/client/UserWebClient.java,e\f\efc54c436c6c0696d1ead5a5c6891aec78dda0ca
 t
 Ddemodb/src/main/java/com/kafka/demodb/controller/UserController.java,3\d\3d6799298a7d33cd3c5fb6b69ae6db706057b386
-q
-Aorc/src/main/java/com/kafka/orc/fragment/usersic/UserService.java,e\0\e01ec50d8a433a79e36cee21e48e0ef13d44f071

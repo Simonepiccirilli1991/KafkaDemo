@@ -8,6 +8,7 @@ import com.kafka.orc.service.LoginService;
 import com.kafka.orc.service.RegistrationService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,7 +31,12 @@ public class UserController {
 
     @PostMapping("login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request){
-        return ResponseEntity.ok(loginService.login(request));
+
+        var resp = loginService.login(request);
+        HttpHeaders header = new HttpHeaders();
+        header.add("sessionId", resp.sessionId());
+
+        return ResponseEntity.ok().headers(header).body(new LoginResponse(resp.userKey(),resp.action()));
     }
 
 }
