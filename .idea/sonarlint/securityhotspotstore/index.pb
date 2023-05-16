@@ -102,8 +102,6 @@ s
 Cdemo/src/test/java/com/kafka/demo/Service/AddAmountServiceTest.java,5\1\51a9b0831eb15d05da97ceef3ee4af3fe72d9b09
 w
 Gdemo/src/test/java/com/kafka/demo/controller/BankAccControllerTest.java,2\3\234131d93de0f477f0a063c79f8f263904a8297a
-i
-9orc/src/main/java/com/kafka/orc/client/OtpvWebClient.java,c\4\c413000f8e5542b45777b943b5689e5fc03a9024
 q
 Aorc/src/main/java/com/kafka/orc/config/PrometheusMeterConfig.java,c\1\c199f21a8a53c9cdd226149b653c753b28f979db
 s
@@ -178,16 +176,10 @@ t
 Dotpv/src/main/java/com/kafka/otpv/configuration/OtpvHazelConfig.java,1\9\19b67c313d5174fcb22e84b6e3606982029ec098
 r
 Bcache/src/main/java/com/kafka/cache/config/SessionHazelConfig.java,e\b\eb245930948b2b29fe2c50bd8027bdf9c8ad2d83
-n
->otpv/src/main/java/com/kafka/otpv/service/ParallelService.java,8\e\8ea954b879c4a70639865417a05f18903dfc3a0f
 o
 ?otpv/src/main/java/com/kafka/otpv/service/CheckOtpvService.java,6\6\66df714e38e9cb957788cf883ef43e2100dd735e
 q
 Aotpv/src/main/java/com/kafka/otpv/service/SendOtpMailService.java,c\0\c07f9dd92427f04be39bcdfe33aeb4547abc6825
-r
-Botpv/src/main/java/com/kafka/otpv/service/GenerateOtpvService.java,4\2\423f1e39366b91157d5e08672bcfd339aabb823e
-o
-?otpv/src/main/java/com/kafka/otpv/service/OtpvCacheService.java,e\c\ec436838b8c7ea40fba1c320aa9912744cec0929
 =
 cache/pom.xml,5\8\588bc724491e2c511617ed05377e4a893f5e0190
 <
@@ -222,8 +214,6 @@ p
 @demodb/src/main/java/com/kafka/demodb/service/StatusService.java,b\b\bbdfe5a41ac6079c9050e3079035a07c734364a8
 t
 Ddemodb/src/main/java/com/kafka/demodb/controller/UserController.java,3\d\3d6799298a7d33cd3c5fb6b69ae6db706057b386
-h
-8orc/src/main/java/com/kafka/orc/client/SicWebClient.java,a\9\a9e1b71e0ddf8833b5e722ef3173b2f4a24a76f6
 u
 Ecache/src/main/java/com/kafka/cache/controller/SessionController.java,6\5\65f5386b6f2640e56ef1f935dad0ec91dc934123
 o
@@ -234,8 +224,6 @@ z
 Jorc/src/main/java/com/kafka/orc/model/fragment/request/SessionRequest.java,5\9\5947e9e454c9b28577b27a81aaaa89acd635d170
 ‚
 Rorc/src/main/java/com/kafka/orc/model/fragment/response/CreateSessionResponse.java,4\6\46522e7315ba9c3e3d9fa101e70e7e0ae59e1366
-x
-Horc/src/main/java/com/kafka/orc/fragment/session/UserSessionService.java,2\c\2c7fc3f7d011fff05f40b3ef94caf3ae274ec057
 q
 Aorc/src/main/java/com/kafka/orc/model/response/LoginResponse.java,b\3\b3337288b5ba145f46b010725595054454470a81
 ~
