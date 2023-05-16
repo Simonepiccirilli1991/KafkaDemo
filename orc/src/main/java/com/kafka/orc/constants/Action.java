@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum Action {
 
+    REGISTER("register"),
     CONSET("consent"),
     CERTIFY("certify"),
     SENDOTP("sendotp"),

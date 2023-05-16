@@ -9,11 +9,14 @@ import com.kafka.orc.fragment.usersic.UserService;
 import com.kafka.orc.fragment.usersic.UserSicService;
 import com.kafka.orc.service.LoginService;
 import com.kafka.orc.service.RegistrationService;
+import com.kafka.orc.service.StatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 public class BaseOrcTest {
 
+    @Autowired
+    protected StatusService statusService;
     @Autowired
     protected LoginService loginService;
     @Autowired

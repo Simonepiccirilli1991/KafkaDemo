@@ -40,6 +40,8 @@ public class UserService {
         request.setUserKey(userKey);
 
         StatusSicResponse resp = userWebClient.statusSic(request);
+        if(!resp.getResponse().equals("OK-00"))
+            throw new OrcError("Error_StatusUser","Erro on get status user","UserCheckStatusKO-02");
 
         return resp;
     }
