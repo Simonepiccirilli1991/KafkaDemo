@@ -20,7 +20,7 @@ public class GenerateOtpService {
 
     public String generateOtpv(GenerateOtpvRequest request, HttpHeaders header){
 
-        if(ObjectUtils.isEmpty(request.getAction()) || request.getAction().equals(Action.SENDOTP))
+        if(ObjectUtils.isEmpty(request.getAction()) || !request.getAction().equals(Action.SENDOTP))
             throw new OrcError("Invalid_Action","Invalid action provided","InvalidActionGenerateKO-01");
 
         var sessionId = header.getFirst("sessionId");

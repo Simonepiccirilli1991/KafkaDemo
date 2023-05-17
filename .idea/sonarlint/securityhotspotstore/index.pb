@@ -227,8 +227,6 @@ p
 @orc/src/main/java/com/kafka/orc/service/RegistrationService.java,2\8\2838bd729aeeb74867b9a592a476bd1407f04860
 m
 =orc/src/test/java/com/kafka/orc/internal/UserServiceTest.java,f\b\fba8979a9680f10f4ee79335d60d08ac9303ebc7
-m
-=orc/src/test/java/com/kafka/orc/service/LoginServiceTest.java,a\3\a31b15abff2dca5e61f969e4dbe3858649bb99cd
 y
 Icache/src/test/java/com/kafka/cache/controller/SessionControllerTest.java,9\f\9f6f781a9079b19e4837e3646243b40123868338
 x
@@ -249,8 +247,6 @@ e
 5orc/src/main/java/com/kafka/orc/constants/Action.java,f\7\f70ec4169eca0b09cede3a9c8fdf2ab0a3f83fc2
 j
 :orc/src/main/java/com/kafka/orc/service/StatusService.java,3\9\3988066c4bdb556894ab22fcc0bfd7f20cd41508
-`
-0orc/src/test/java/com/kafka/orc/BaseOrcTest.java,b\e\be2b1a7304e0bd4c7050311b1944c736735b49f3
 i
 9orc/src/main/java/com/kafka/orc/client/UserWebClient.java,e\f\efc54c436c6c0696d1ead5a5c6891aec78dda0ca
 q

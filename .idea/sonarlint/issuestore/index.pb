@@ -233,8 +233,6 @@ p
 demodb/pom.xml,f\a\fa245f6a01ab40dc44efa9ec358c7b8693907e8f
 ;
 orc/pom.xml,3\5\357c4e219bb74814af8114ec0262fb5f5648f0cb
-m
-=orc/src/test/java/com/kafka/orc/service/LoginServiceTest.java,a\3\a31b15abff2dca5e61f969e4dbe3858649bb99cd
 x
 Hdemodb/src/test/java/com/kafka/demodb/controller/ItemControllerTest.java,2\1\215dd2332796175f4bc60c118280d25f0ee6301f
 n
@@ -247,8 +245,6 @@ i
 9orc/src/main/java/com/kafka/orc/service/LoginService.java,1\d\1d9199075d1acd53abbc0d38a1e7fd2ada63523e
 e
 5orc/src/main/java/com/kafka/orc/constants/Action.java,f\7\f70ec4169eca0b09cede3a9c8fdf2ab0a3f83fc2
-`
-0orc/src/test/java/com/kafka/orc/BaseOrcTest.java,b\e\be2b1a7304e0bd4c7050311b1944c736735b49f3
 i
 9orc/src/main/java/com/kafka/orc/client/UserWebClient.java,e\f\efc54c436c6c0696d1ead5a5c6891aec78dda0ca
 p
