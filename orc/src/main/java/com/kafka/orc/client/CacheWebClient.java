@@ -39,4 +39,20 @@ public class CacheWebClient {
         return new CreateSessionResponse(header,result);
 
     }
+
+    public Boolean checkValidSession(String sessionId){
+
+        var resp =  webClient.post()
+                .uri("" + "")
+                .header("sessionId",sessionId)
+                .retrieve().bodyToMono(Boolean.class)
+                .onErrorMap(e -> {
+                    logger.error("Error on check session with error: ", e.getMessage());
+                    throw new OrcError("Generic Error", "PI_MS_5000: Generic error","CheckSessKO-01");
+                });
+
+        var response =   resp.block();
+
+        return response;
+    }
 }

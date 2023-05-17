@@ -29,7 +29,10 @@ public class GenerateOtpService {
             throw new OrcError("Invalid_Session","Invalid sessionId provided","InvalidSessionKO-01");
 
         //checko sessione
-        //TODO: inserire check sessione se valida e esiste
+        var sessionValid = userSessionService.checkSession(sessionId);
+
+        if(!sessionValid)
+            throw new OrcError("Invalid_Session","Session is expired","InvalidSessionKO-02");
 
         var resp = otpvService.generateOtp(request.getUserKey());
 

@@ -29,5 +29,12 @@ public class UserSessionService {
         return  resp;
     }
 
-    //TODO: creare checksession
+    public Boolean checkSession(String sessionID){
+
+        var resp = cacheWebClient.checkValidSession(sessionID);
+        if(ObjectUtils.isEmpty(resp))
+            throw new OrcError("CheckSess_Error","Check session response is empty","CheckSessKO-02");
+
+        return resp;
+    }
 }
