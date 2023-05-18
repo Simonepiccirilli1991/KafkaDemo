@@ -37,4 +37,12 @@ public class UserSessionService {
 
         return resp;
     }
+
+    public void updateSession(String userKey){
+
+        var resp = cacheWebClient.updateSession(userKey);
+        if(ObjectUtils.isEmpty(resp) || resp.updated())
+            throw new OrcError("UpdateSess_Error","Update session response is empty","UpdateSessKO-02");
+
+    }
 }

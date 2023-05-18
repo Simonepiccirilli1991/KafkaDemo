@@ -55,4 +55,23 @@ public class CacheWebClient {
 
         return response;
     }
+
+    public SessionUpdate updateSession(String sessionId){
+
+        var resp =  webClient.post()
+                .uri("" + "")
+                .header("sessionId",sessionId)
+                .retrieve().bodyToMono(SessionUpdate.class)
+                .onErrorMap(e -> {
+                    logger.error("Error on update session with error: ", e.getMessage());
+                    throw new OrcError("Generic Error", "PI_MS_5000: Generic error","UpdateSessKO-01");
+                });
+
+        var response =   resp.block();
+
+        return response;
+    }
+
+
+    public record SessionUpdate(String sessionId,Boolean updated){}
 }

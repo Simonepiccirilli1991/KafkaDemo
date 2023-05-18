@@ -159,8 +159,6 @@ m
 =demo/src/main/java/com/kafka/demo/service/BankAccService.java,c\d\cdbb5c99c1f3a9a1245bb5da1e5ce3c436c0cab1
 c
 3orc/src/main/java/com/kafka/orc/error/ErrorDto.java,8\5\853d53b273336364fa30446c09be7f5e389e5c5b
-k
-;orc/src/main/java/com/kafka/orc/service/CertifyService.java,4\9\49f8ccaf0de54e129df7a6536a0eee96bf3f1718
 {
 Korc/src/main/java/com/kafka/orc/model/fragment/response/BaseDbResponse.java,5\8\586a17e9a614f785ee082b8a38c99d0cb64ef77a
 j
@@ -203,8 +201,6 @@ o
 ?orc/src/main/java/com/kafka/orc/model/request/LoginRequest.java,1\0\10ae018aa76491b8e120de6ea0eff9025b769261
 u
 Eorc/src/main/java/com/kafka/orc/fragment/bankacc/BankUserService.java,1\b\1bc5ef17828bdc659532f0596b869d94522c930b
-t
-Dorc/src/main/java/com/kafka/orc/fragment/usersic/UserSicService.java,1\d\1d893d2edf2554f3fcd4eaea996bbbeaf755ec1e
 v
 Fdemodb/src/main/java/com/kafka/demodb/service/RegisterUserService.java,f\b\fbbe67b8a37cdb4819a2ec195c9a4ea0914b4d82
 p
@@ -247,8 +243,6 @@ e
 5orc/src/main/java/com/kafka/orc/constants/Action.java,f\7\f70ec4169eca0b09cede3a9c8fdf2ab0a3f83fc2
 j
 :orc/src/main/java/com/kafka/orc/service/StatusService.java,3\9\3988066c4bdb556894ab22fcc0bfd7f20cd41508
-i
-9orc/src/main/java/com/kafka/orc/client/UserWebClient.java,e\f\efc54c436c6c0696d1ead5a5c6891aec78dda0ca
 q
 Aorc/src/main/java/com/kafka/orc/fragment/usersic/UserService.java,e\0\e01ec50d8a433a79e36cee21e48e0ef13d44f071
 n
@@ -263,9 +257,16 @@ r
 Botpv/src/main/java/com/kafka/otpv/service/GenerateOtpvService.java,4\2\423f1e39366b91157d5e08672bcfd339aabb823e
 
 Qorc/src/main/java/com/kafka/orc/model/fragment/response/GenerateOtpvResponse.java,5\a\5a49c4752fd6da4469562d1b65fc66b3d6af23cd
-h
-8orc/src/main/java/com/kafka/orc/client/SicWebClient.java,a\9\a9e1b71e0ddf8833b5e722ef3173b2f4a24a76f6
 n
 >orc/src/main/java/com/kafka/orc/fragment/otpv/OtpvService.java,a\6\a67c5406f025d0408fbced114258cacc870efbd7
 v
 Forc/src/main/java/com/kafka/orc/model/request/GenerateOtpvRequest.java,6\5\6530e5d7c4d603130c9674cfbb06662d7bccf116
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+m
+=orc/src/test/java/com/kafka/orc/service/LoginServiceTest.java,a\3\a31b15abff2dca5e61f969e4dbe3858649bb99cd
+`
+0orc/src/test/java/com/kafka/orc/BaseOrcTest.java,b\e\be2b1a7304e0bd4c7050311b1944c736735b49f3
+t
+Dorc/src/main/java/com/kafka/orc/model/request/ValidationRequest.java,a\e\ae66b2374f8d188847f7913e93323c76d743f741
