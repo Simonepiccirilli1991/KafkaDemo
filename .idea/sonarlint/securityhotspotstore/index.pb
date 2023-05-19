@@ -237,8 +237,6 @@ i
 9orc/src/main/java/com/kafka/orc/service/LoginService.java,1\d\1d9199075d1acd53abbc0d38a1e7fd2ada63523e
 e
 5orc/src/main/java/com/kafka/orc/constants/Action.java,f\7\f70ec4169eca0b09cede3a9c8fdf2ab0a3f83fc2
-j
-:orc/src/main/java/com/kafka/orc/service/StatusService.java,3\9\3988066c4bdb556894ab22fcc0bfd7f20cd41508
 q
 Aorc/src/main/java/com/kafka/orc/fragment/usersic/UserService.java,e\0\e01ec50d8a433a79e36cee21e48e0ef13d44f071
 n
@@ -260,15 +258,9 @@ Forc/src/main/java/com/kafka/orc/model/request/GenerateOtpvRequest.java,6\5\653
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 m
 =orc/src/test/java/com/kafka/orc/service/LoginServiceTest.java,a\3\a31b15abff2dca5e61f969e4dbe3858649bb99cd
-`
-0orc/src/test/java/com/kafka/orc/BaseOrcTest.java,b\e\be2b1a7304e0bd4c7050311b1944c736735b49f3
 t
 Dorc/src/main/java/com/kafka/orc/model/request/ValidationRequest.java,a\e\ae66b2374f8d188847f7913e93323c76d743f741
 i
 9orc/src/main/java/com/kafka/orc/client/UserWebClient.java,e\f\efc54c436c6c0696d1ead5a5c6891aec78dda0ca
 o
 ?cache/src/main/java/com/kafka/cache/service/SessionService.java,7\2\72c601e08df4e382b83b27ad164e32777f2ebf05
-j
-:orc/src/main/java/com/kafka/orc/client/CacheWebClient.java,4\e\4e56a090716d453af938adf92c8534e63ce8b59d
-x
-Horc/src/main/java/com/kafka/orc/fragment/session/UserSessionService.java,2\c\2c7fc3f7d011fff05f40b3ef94caf3ae274ec057
