@@ -25,8 +25,6 @@ u
 Eotpv/src/main/java/com/kafka/otpv/exception/ExceptionOtpvHandler.java,d\0\d03d3ec6febabd0a793ecf96c278082f0079f1aa
 j
 :otpv/src/main/java/com/kafka/otpv/service/GenerateKey.java,a\2\a2e19ae9cf55123a22045e00863098861a317e3a
-~
-Notpv/src/main/java/com/kafka/otpv/model/response/CheckOtpvSummaryResponse.java,3\1\31c37f7c990340e8b6e6d48ade4cbf63dde5f2bb
 x
 Hotpv/src/main/java/com/kafka/otpv/model/request/GenerateOtpvRequest.java,3\f\3f21012965399dc0668332ab18da6bc416c323e5
 |
@@ -171,8 +169,6 @@ t
 Dotpv/src/main/java/com/kafka/otpv/configuration/OtpvHazelConfig.java,1\9\19b67c313d5174fcb22e84b6e3606982029ec098
 r
 Bcache/src/main/java/com/kafka/cache/config/SessionHazelConfig.java,e\b\eb245930948b2b29fe2c50bd8027bdf9c8ad2d83
-o
-?otpv/src/main/java/com/kafka/otpv/service/CheckOtpvService.java,6\6\66df714e38e9cb957788cf883ef43e2100dd735e
 q
 Aotpv/src/main/java/com/kafka/otpv/service/SendOtpMailService.java,c\0\c07f9dd92427f04be39bcdfe33aeb4547abc6825
 =
@@ -257,8 +253,6 @@ r
 Botpv/src/main/java/com/kafka/otpv/service/GenerateOtpvService.java,4\2\423f1e39366b91157d5e08672bcfd339aabb823e
 
 Qorc/src/main/java/com/kafka/orc/model/fragment/response/GenerateOtpvResponse.java,5\a\5a49c4752fd6da4469562d1b65fc66b3d6af23cd
-n
->orc/src/main/java/com/kafka/orc/fragment/otpv/OtpvService.java,a\6\a67c5406f025d0408fbced114258cacc870efbd7
 v
 Forc/src/main/java/com/kafka/orc/model/request/GenerateOtpvRequest.java,6\5\6530e5d7c4d603130c9674cfbb06662d7bccf116
 :
@@ -270,3 +264,11 @@ m
 0orc/src/test/java/com/kafka/orc/BaseOrcTest.java,b\e\be2b1a7304e0bd4c7050311b1944c736735b49f3
 t
 Dorc/src/main/java/com/kafka/orc/model/request/ValidationRequest.java,a\e\ae66b2374f8d188847f7913e93323c76d743f741
+i
+9orc/src/main/java/com/kafka/orc/client/UserWebClient.java,e\f\efc54c436c6c0696d1ead5a5c6891aec78dda0ca
+o
+?cache/src/main/java/com/kafka/cache/service/SessionService.java,7\2\72c601e08df4e382b83b27ad164e32777f2ebf05
+j
+:orc/src/main/java/com/kafka/orc/client/CacheWebClient.java,4\e\4e56a090716d453af938adf92c8534e63ce8b59d
+x
+Horc/src/main/java/com/kafka/orc/fragment/session/UserSessionService.java,2\c\2c7fc3f7d011fff05f40b3ef94caf3ae274ec057

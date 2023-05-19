@@ -2,7 +2,9 @@ package com.kafka.orc.client;
 
 import com.kafka.orc.error.OrcError;
 import com.kafka.orc.model.fragment.request.CertifyMailSicRequest;
+import com.kafka.orc.model.fragment.request.CheckOtpvRequest;
 import com.kafka.orc.model.fragment.response.BaseDbResponse;
+import com.kafka.orc.model.fragment.response.CheckOtpvResponse;
 import com.kafka.orc.model.fragment.response.GenerateOtpvResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -35,4 +37,25 @@ public class OtpvWebClient {
 
         return resp.block();
     }
+
+    public CheckOtpvResponse checkOtpv(CheckOtpvRequest request) {
+
+        logger.debug("Calling Check otpv service");
+
+        var resp =  webClient.post()
+                .uri("" + "")
+                .bodyValue(request)
+                .retrieve()
+                .bodyToMono(CheckOtpvResponse.class)
+                .onErrorMap(e -> {
+                    logger.error("Error on Check otp with error: ", e.getMessage());
+                    throw new OrcError("Generic Error", "PI_MS_5000: Generic error","CheckOtpvKO-01");
+                });
+
+        return resp.block();
+    }
+
+
+
+
 }

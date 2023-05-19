@@ -2,6 +2,7 @@ package com.kafka.orc.service;
 
 import com.kafka.orc.constants.Action;
 import com.kafka.orc.error.OrcError;
+import com.kafka.orc.fragment.otpv.OtpvService;
 import com.kafka.orc.fragment.session.UserSessionService;
 import com.kafka.orc.fragment.usersic.UserSicService;
 import com.kafka.orc.model.fragment.request.CertifyMailSicRequest;
@@ -20,8 +21,10 @@ public class ValidationService {
     UserSicService userSicService;
     @Autowired
     UserSessionService userSessionService;
+    @Autowired
+    OtpvService otpvService;
 
-    public void validationService(ValidationRequest request, HttpHeaders headers){
+    public Action validationService(ValidationRequest request, HttpHeaders headers){
 
         if(ObjectUtils.isEmpty(request.getAction()) || !request.getAction().equals(Action.CERTIFY) && !request.getAction().equals(Action.CHECKOTP))
             throw new OrcError("Invalid_Action","Invalid action provided","InvalidActionVerifyKO-01");
@@ -46,11 +49,19 @@ public class ValidationService {
 
         }
         else{
+            var sessionId = headers.getFirst("sessionId");
 
-            //TODO: creare metodo che chiama checkOtp su client
-            // la check la faccio io
+            if(ObjectUtils.isEmpty(sessionId))
+                throw new OrcError("Session_Missing","SessionId is missing","Invalid_Session");
 
+            // chiamata direttamnte a otpv per check
+            otpvService.checkOtpv(request.getUserKey(),request.getTrxId(), request.getOtp());
             // updato session
+            userSessionService.updateSession(sessionId);
+
         }
+
+        // che sia certify o normale checkOtp torniamo sempre conset al momento per farlo andare in postLogin
+        return Action.CONSET;
     }
 }
