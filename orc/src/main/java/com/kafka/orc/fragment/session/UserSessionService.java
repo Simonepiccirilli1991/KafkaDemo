@@ -4,6 +4,7 @@ import com.kafka.orc.client.CacheWebClient;
 import com.kafka.orc.error.OrcError;
 import com.kafka.orc.model.fragment.request.SessionRequest;
 import com.kafka.orc.model.fragment.response.CreateSessionResponse;
+import com.kafka.orc.model.fragment.response.GetSessionResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -44,5 +45,15 @@ public class UserSessionService {
         if(ObjectUtils.isEmpty(resp) || !resp.updated())
             throw new OrcError("UpdateSess_Error","Update session response is empty","UpdateSessKO-02");
 
+    }
+
+    public GetSessionResponse getSession(String sessionId){
+
+        var session = cacheWebClient.getSession(sessionId);
+
+        if(ObjectUtils.isEmpty(session) || ObjectUtils.isEmpty(session.getSession()))
+            throw new OrcError("GetSess_Error","get session response is empty","GetSessKO-02");
+
+        return session;
     }
 }

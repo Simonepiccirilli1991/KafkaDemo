@@ -3,6 +3,7 @@ package com.kafka.orc.client;
 import com.kafka.orc.error.OrcError;
 import com.kafka.orc.model.fragment.request.SessionRequest;
 import com.kafka.orc.model.fragment.response.CreateSessionResponse;
+import com.kafka.orc.model.fragment.response.GetSessionResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +66,21 @@ public class CacheWebClient {
                 .onErrorMap(e -> {
                     logger.error("Error on update session with error: ", e.getMessage());
                     throw new OrcError("Generic Error", "PI_MS_5000: Generic error","UpdateSessKO-01");
+                });
+
+        var response =   resp.block();
+
+        return response;
+    }
+
+    public GetSessionResponse getSession(String sessionId){
+
+        var resp =  webClient.get()
+                .uri("" + sessionId)
+                .retrieve().bodyToMono(GetSessionResponse.class)
+                .onErrorMap(e -> {
+                    logger.error("Error on get session with error: ", e.getMessage());
+                    throw new OrcError("Generic Error", "PI_MS_5000: Generic error","GetSessKO-01");
                 });
 
         var response =   resp.block();

@@ -145,8 +145,6 @@ s
 Cdemo/src/main/java/com/kafka/demo/model/request/AccountRequest.java,9\c\9cdbd9acffc58eb5acf297860788591735de2660
 o
 ?demo/src/main/java/com/kafka/demo/model/entity/BankAccount.java,c\c\cc2f99727c47ac60204173b18824e81694a3ddb7
-l
-<orc/src/main/java/com/kafka/orc/client/BankAccWebClient.java,e\c\ec3d43ae8b99c1a89b08c4126e0bd8b4760a3271
 t
 Dorc/src/main/java/com/kafka/orc/model/response/RegisterResponse.java,7\f\7fc22ff43effe8606c730d5a082bd15003b20c57
 v
@@ -175,8 +173,6 @@ Bcache/src/main/java/com/kafka/cache/config/SessionHazelConfig.java,e\b\eb24593
 otpv/pom.xml,3\d\3dbaadfd1e2ef03022e49611d49991e97e049487
 =
 cache/pom.xml,5\8\588bc724491e2c511617ed05377e4a893f5e0190
-i
-9cache/src/main/java/com/kafka/cache/model/SicSession.java,a\8\a8c401d201cf2d126ea3d88c130e0f7d62dc90da
 p
 @cache/src/main/java/com/kafka/cache/error/CacheErrorHandler.java,e\f\efb1631a916f3237a8c797140be4524a0152c601
 s
@@ -262,5 +258,3 @@ m
 =orc/src/test/java/com/kafka/orc/service/LoginServiceTest.java,a\3\a31b15abff2dca5e61f969e4dbe3858649bb99cd
 i
 9orc/src/main/java/com/kafka/orc/client/UserWebClient.java,e\f\efc54c436c6c0696d1ead5a5c6891aec78dda0ca
-o
-?cache/src/main/java/com/kafka/cache/service/SessionService.java,7\2\72c601e08df4e382b83b27ad164e32777f2ebf05
