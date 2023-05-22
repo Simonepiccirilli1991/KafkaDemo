@@ -5,6 +5,7 @@ import com.kafka.orc.model.fragment.request.UserAccRequest;
 import com.kafka.orc.model.fragment.request.UserSicRequest;
 import com.kafka.orc.model.fragment.response.BaseBankResponse;
 import com.kafka.orc.model.fragment.response.BaseDbResponse;
+import com.kafka.orc.model.fragment.response.StatusBankAccResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,24 @@ public class BankAccWebClient {
                 .onErrorMap(e -> {
                     logger.error("Error on registerBankUser with error: ", e.getMessage());
                     throw new OrcError("Generic Error", "PI_MS_5000: Generic error","UserBankRegKO-01");
+                });
+
+        return resp.block();
+    }
+
+    public StatusBankAccResponse getStatus(String userKey) {
+
+        logger.debug("Calling status Bank Acc service");
+
+        //TODO: inserire endpoint
+        var resp =  webClient.post()
+                .uri("" + "")
+                .bodyValue(userKey)
+                .retrieve()
+                .bodyToMono(StatusBankAccResponse.class)
+                .onErrorMap(e -> {
+                    logger.error("Error on status Bank Acc with error: ", e.getMessage());
+                    throw new OrcError("Generic Error", "PI_MS_5000: Generic error","StatusBankRegKO-01");
                 });
 
         return resp.block();

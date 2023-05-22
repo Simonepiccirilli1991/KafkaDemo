@@ -6,6 +6,7 @@ import com.kafka.orc.model.fragment.request.UserAccRequest;
 import com.kafka.orc.model.fragment.request.UserSicRequest;
 import com.kafka.orc.model.fragment.response.BaseBankResponse;
 import com.kafka.orc.model.fragment.response.BaseDbResponse;
+import com.kafka.orc.model.fragment.response.StatusBankAccResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -23,5 +24,15 @@ public class BankUserService {
             throw new OrcError(resp.getResult(),resp.getMsg(),"UserBankRegKO-02");
 
         return resp;
+    }
+
+    public StatusBankAccResponse statusBankAcc(String userKey){
+
+        var response = bankAccWebClient.getStatus(userKey);
+
+        if(ObjectUtils.isEmpty(response) || response.getNotPresent())
+            throw new OrcError("BankAcc_Missing","User bank account are not present","StatusBankRegKO-02");
+
+        return response;
     }
 }

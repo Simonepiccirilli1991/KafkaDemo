@@ -8,7 +8,10 @@ public enum Action {
     CONSET("consent"),
     CERTIFY("certify"),
     SENDOTP("sendotp"),
-    CHECKOTP("checkotp");
+    CHECKOTP("checkotp"),
+    PERFORM("perform"),
+    BANKCERTIFY("bankcertify"), // usata per fare sendOtp per certifica account
+    BANKCERTIFIED("bankcerfied"); // usata per fare checkOtp per certifica account
 
     private final String value;
 
