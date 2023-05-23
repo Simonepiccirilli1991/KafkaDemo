@@ -250,8 +250,6 @@ Eotpv/src/main/java/com/kafka/otpv/model/request/CheckOtpvRequest.java,a\0\a0ff
 Notpv/src/main/java/com/kafka/otpv/model/response/CheckOtpvSummaryResponse.java,3\1\31c37f7c990340e8b6e6d48ade4cbf63dde5f2bb
 ~
 Norc/src/main/java/com/kafka/orc/model/fragment/response/CheckOtpvResponse.java,8\9\898ec5fa6a2010928729bd52004774b5f4fd1130
-o
-?orc/src/main/java/com/kafka/orc/service/GenerateOtpService.java,f\8\f8028e129a2316558c8d48f8a5bd80d4489aff95
 h
 8orc/src/main/java/com/kafka/orc/client/SicWebClient.java,a\9\a9e1b71e0ddf8833b5e722ef3173b2f4a24a76f6
 t

@@ -20,9 +20,11 @@ public class GenerateOtpService {
 
     public String generateOtpv(GenerateOtpvRequest request, HttpHeaders header){
 
-        if(ObjectUtils.isEmpty(request.getAction()) || !request.getAction().equals(Action.SENDOTP))
+        if(ObjectUtils.isEmpty(request.getAction()) || !request.getAction().equals(Action.SENDOTP)
+        && !request.getAction().equals(Action.BANKCERTIFY))
             throw new OrcError("Invalid_Action","Invalid action provided","InvalidActionGenerateKO-01");
 
+        //TODO: vedere se implementare logica di ritorno action, al momento la gestiamo solo in entrata non in uscita qui
         var sessionId = header.getFirst("sessionId");
 
         if(ObjectUtils.isEmpty(sessionId))

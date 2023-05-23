@@ -242,8 +242,6 @@ i
 9orc/src/main/java/com/kafka/orc/client/UserWebClient.java,e\f\efc54c436c6c0696d1ead5a5c6891aec78dda0ca
 t
 Dorc/src/main/java/com/kafka/orc/fragment/usersic/UserSicService.java,1\d\1d893d2edf2554f3fcd4eaea996bbbeaf755ec1e
-o
-?orc/src/main/java/com/kafka/orc/service/GenerateOtpService.java,f\8\f8028e129a2316558c8d48f8a5bd80d4489aff95
 s
 Corc/src/test/java/com/kafka/orc/service/GenerateOtpServiceTest.java,0\4\04cd505970d945adee421105456f5a5aa7a4fcf0
 h
