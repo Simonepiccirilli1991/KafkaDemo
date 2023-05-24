@@ -3,9 +3,11 @@ package com.kafka.demo.controller;
 import com.kafka.demo.model.request.AccountRequest;
 import com.kafka.demo.model.response.BaseBankResponse;
 import com.kafka.demo.model.response.StatusResponse;
+import com.kafka.demo.service.BalanceService;
 import com.kafka.demo.service.BankAccService;
 import com.kafka.demo.service.StatusBankService;
 import com.kafka.demo.service.AddAmountService;
+import com.kafka.demo.service.internal.BankAccCrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +23,8 @@ public class BankAccController {
     StatusBankService statusBankService;
     @Autowired
     AddAmountService addAmountService;
+    @Autowired
+    BalanceService balanceService;
 
 
     @PostMapping("/register")
@@ -43,5 +47,11 @@ public class BankAccController {
                                                                      @RequestParam ("amount") Double amount,
                                                                      @RequestParam ("remove") Boolean isRemove){
         return ResponseEntity.ok(addAmountService.add_removeAmount(userKey,amount,isRemove));
+    }
+
+    @GetMapping("/getbalance/{userKey}")
+    public ResponseEntity<BankAccCrudService.GetBankAccSummaryFilter> getBalanceAcc(@PathVariable ("userKey") String userKey){
+
+        return ResponseEntity.ok(balanceService.getBalanceAcc(userKey));
     }
 }
