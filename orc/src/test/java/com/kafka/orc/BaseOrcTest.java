@@ -11,6 +11,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 public class BaseOrcTest {
 
     @Autowired
+    protected GetBalanceService getBalanceService;
+    @Autowired
     protected BankAccStatusService bankAccStatusService;
     @Autowired
     protected ValidationService validationService;

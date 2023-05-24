@@ -272,8 +272,6 @@ e
 5orc/src/main/java/com/kafka/orc/constants/Action.java,f\7\f70ec4169eca0b09cede3a9c8fdf2ab0a3f83fc2
 i
 9orc/src/main/java/com/kafka/orc/service/LoginService.java,1\d\1d9199075d1acd53abbc0d38a1e7fd2ada63523e
-`
-0orc/src/test/java/com/kafka/orc/BaseOrcTest.java,b\e\be2b1a7304e0bd4c7050311b1944c736735b49f3
 q
 Aorc/src/main/java/com/kafka/orc/service/BankAccStatusService.java,4\2\42cd5dba47746765b052124bb5c8a3335ad16eb5
 j
