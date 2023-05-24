@@ -11,14 +11,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
 @Service
-public class AddBalanceService {
+public class RemoveBalanceService {
 
     @Autowired
     BankBalanceService balanceService;
     @Autowired
     UserSessionService userSessionService;
 
-    public AmountBankResponse addBalance(BalanceRequest request, HttpHeaders headers){
+    public AmountBankResponse removeBalance(BalanceRequest request, HttpHeaders headers){
 
         if(ObjectUtils.isEmpty(request.getAmount()) || ObjectUtils.isEmpty(request.getUserKey()))
             throw new OrcError("Invalid_request", "missing parameters on request", "Invalid_Request");
@@ -34,7 +34,7 @@ public class AddBalanceService {
         if(!session.getSession().getScope().equals("l2"))
             throw new OrcError("Session low lever","session is not in scope l2","Invalid_Session");
 
-        var resp = balanceService.addBalanceAcc(request.getUserKey(), request.getAmount());
+        var resp = balanceService.removeBalanceAcc(request.getUserKey(), request.getAmount());
 
         return resp;
     }

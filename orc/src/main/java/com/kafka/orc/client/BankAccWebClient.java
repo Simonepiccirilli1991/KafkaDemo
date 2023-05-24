@@ -4,6 +4,7 @@ import com.kafka.orc.error.OrcError;
 import com.kafka.orc.model.fragment.GetBalanceAccResponse;
 import com.kafka.orc.model.fragment.request.UserAccRequest;
 import com.kafka.orc.model.fragment.request.UserSicRequest;
+import com.kafka.orc.model.fragment.response.AmountBankResponse;
 import com.kafka.orc.model.fragment.response.BaseBankResponse;
 import com.kafka.orc.model.fragment.response.BaseDbResponse;
 import com.kafka.orc.model.fragment.response.StatusBankAccResponse;
@@ -77,7 +78,7 @@ public class BankAccWebClient {
 
     public GetBalanceAccResponse getBalanceAcc(String userKey) {
 
-        logger.debug("Calling status Bank Acc service");
+        logger.debug("Calling getBalance Bank Acc service");
 
         //TODO: inserire endpoint
         var resp =  webClient.get()
@@ -85,11 +86,30 @@ public class BankAccWebClient {
                 .retrieve()
                 .bodyToMono(GetBalanceAccResponse.class)
                 .onErrorMap(e -> {
-                    logger.error("Error on status Bank Acc with error: ", e.getMessage());
+                    logger.error("Error on getBalance Bank Acc with error: ", e.getMessage());
                     throw new OrcError("Generic Error", "PI_MS_5000: Generic error","UserBankBalanceKO-01");
                 });
 
         return resp.block();
+    }
+
+
+    public AmountBankResponse addORemoveBalance(String userKey, Double amount, Boolean isRemove){
+
+        logger.debug("Calling addORemoveBalance Bank Acc service");
+
+        //TODO: inserire endpoint con pqueery paramether
+        var resp =  webClient.get()
+                .uri("" + userKey)
+                .retrieve()
+                .bodyToMono(AmountBankResponse.class)
+                .onErrorMap(e -> {
+                    logger.error("Error on addORemoveBalance Bank Acc with error: ", e.getMessage());
+                    throw new OrcError("Generic Error", "PI_MS_5000: Generic error","UserBankBalanceKO-01");
+                });
+
+        return resp.block();
+
     }
 
 }
