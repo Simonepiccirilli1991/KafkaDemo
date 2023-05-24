@@ -4,6 +4,7 @@ import com.kafka.orc.BaseOrcTest;
 import com.kafka.orc.client.CacheWebClient;
 import com.kafka.orc.constants.Action;
 import com.kafka.orc.error.OrcError;
+import com.kafka.orc.model.fragment.response.BaseBankResponse;
 import com.kafka.orc.model.fragment.response.BaseDbResponse;
 import com.kafka.orc.model.fragment.response.CheckOtpvResponse;
 import com.kafka.orc.model.request.ValidationRequest;
@@ -110,5 +111,33 @@ public class ValidationServiceTest extends BaseOrcTest {
 
         assert ex.getMsg().equals("SessionId is missing");
         assert ex.getCaused().equals("Session_Missing");
+    }
+
+    @Test
+    void validateCheckOtpCertifyTestOK(){
+
+        ValidationRequest request = new ValidationRequest();
+        request.setAction(Action.BANKCERTIFY);
+        request.setOtp("otp");
+        request.setTrxId("trxId");
+        request.setUserKey("userKye");
+
+        CheckOtpvResponse otpvResponse = new CheckOtpvResponse();
+        otpvResponse.setResult("Otp validate");
+
+        Mockito.when(otpvWebClient.checkOtpv(Mockito.any())).thenReturn(otpvResponse);
+
+        Mockito.when(cacheWebClient.checkValidSession(Mockito.any())).thenReturn(true);
+
+        BaseBankResponse bankResp = new BaseBankResponse();
+        bankResp.setIsError(false);
+
+        Mockito.when(bankAccWebClient.certifyBankAcc(Mockito.any())).thenReturn(bankResp);
+        HttpHeaders header = new HttpHeaders();
+        header.add("sessionId","SessionID");
+
+        var resp = validationService.validationService(request, header);
+
+        assert resp.equals(Action.BANKCERTIFIED);
     }
 }

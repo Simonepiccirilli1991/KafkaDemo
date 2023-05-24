@@ -28,7 +28,8 @@ public class ValidationService {
 
     public Action validationService(ValidationRequest request, HttpHeaders headers){
 
-        if(ObjectUtils.isEmpty(request.getAction()) || !request.getAction().equals(Action.CERTIFY) && !request.getAction().equals(Action.CHECKOTP))
+        if(ObjectUtils.isEmpty(request.getAction()) || !request.getAction().equals(Action.CERTIFY) && !request.getAction().equals(Action.CHECKOTP)
+        && !request.getAction().equals(Action.BANKCERTIFY))
             throw new OrcError("Invalid_Action","Invalid action provided","InvalidActionVerifyKO-01");
 
 
