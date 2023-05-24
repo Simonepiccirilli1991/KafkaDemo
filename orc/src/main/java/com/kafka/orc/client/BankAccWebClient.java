@@ -1,6 +1,7 @@
 package com.kafka.orc.client;
 
 import com.kafka.orc.error.OrcError;
+import com.kafka.orc.model.fragment.GetBalanceAccResponse;
 import com.kafka.orc.model.fragment.request.UserAccRequest;
 import com.kafka.orc.model.fragment.request.UserSicRequest;
 import com.kafka.orc.model.fragment.response.BaseBankResponse;
@@ -68,9 +69,27 @@ public class BankAccWebClient {
                 .bodyToMono(BaseBankResponse.class)
                 .onErrorMap(e -> {
                     logger.error("Error on status Bank Acc with error: ", e.getMessage());
-                    throw new OrcError("Generic Error", "PI_MS_5000: Generic error","UserBankCertKO-02");
+                    throw new OrcError("Generic Error", "PI_MS_5000: Generic error","UserBankCertKO-01");
                 });
 
         return resp.block();
     }
+
+    public GetBalanceAccResponse getBalanceAcc(String userKey) {
+
+        logger.debug("Calling status Bank Acc service");
+
+        //TODO: inserire endpoint
+        var resp =  webClient.get()
+                .uri("" + userKey)
+                .retrieve()
+                .bodyToMono(GetBalanceAccResponse.class)
+                .onErrorMap(e -> {
+                    logger.error("Error on status Bank Acc with error: ", e.getMessage());
+                    throw new OrcError("Generic Error", "PI_MS_5000: Generic error","UserBankBalanceKO-01");
+                });
+
+        return resp.block();
+    }
+
 }

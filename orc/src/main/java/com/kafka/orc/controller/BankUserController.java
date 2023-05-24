@@ -1,7 +1,9 @@
 package com.kafka.orc.controller;
 
 import com.kafka.orc.constants.Action;
+import com.kafka.orc.model.fragment.GetBalanceAccResponse;
 import com.kafka.orc.service.BankAccStatusService;
+import com.kafka.orc.service.GetBalanceService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +15,17 @@ import org.springframework.web.bind.annotation.*;
 public class BankUserController {
 
     private final BankAccStatusService bankAccStatusService;
+    private final GetBalanceService getBalanceService;
 
 
     @PostMapping("/status")
-    ResponseEntity<Action> statusBank(@RequestBody String userKey, @RequestHeader HttpHeaders header){
+    public ResponseEntity<Action> statusBank(@RequestBody String userKey, @RequestHeader HttpHeaders header){
         return ResponseEntity.ok(bankAccStatusService.statusPostLoginBank(userKey,header));
     }
 
-    //TODO: creare servizio che fa check otp e poi certifica su bankAcc
+    @PostMapping("/status/balance")
+    public ResponseEntity<GetBalanceAccResponse> getBalanceAcc(@RequestBody String userKey){
+        return ResponseEntity.ok(getBalanceService.getBalanceAcc(userKey));
+    }
+
 }

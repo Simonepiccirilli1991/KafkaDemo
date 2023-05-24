@@ -2,6 +2,7 @@ package com.kafka.orc.fragment.bankacc;
 
 import com.kafka.orc.client.BankAccWebClient;
 import com.kafka.orc.error.OrcError;
+import com.kafka.orc.model.fragment.GetBalanceAccResponse;
 import com.kafka.orc.model.fragment.request.UserAccRequest;
 import com.kafka.orc.model.fragment.request.UserSicRequest;
 import com.kafka.orc.model.fragment.response.BaseBankResponse;
@@ -42,5 +43,16 @@ public class BankUserService {
 
         if(ObjectUtils.isEmpty(resp) || resp.getIsError())
             throw new OrcError(resp.getResult(),resp.getMsg(),"UserBankCertKO-02");
+    }
+
+
+    public GetBalanceAccResponse getBalanceAcc(String userKey){
+
+        var response = bankAccWebClient.getBalanceAcc(userKey);
+
+        if(ObjectUtils.isEmpty(response))
+            throw new OrcError("Generic Error resp is empty", "PI_MS_5000: Generic error","UserBankBalanceKO-02");
+
+        return response;
     }
 }
