@@ -11,6 +11,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 public class BaseOrcTest {
 
     @Autowired
+    protected PaymentService paymentService;
+    @Autowired
     protected AddBalanceService addBalanceService;
     @Autowired
     protected RemoveBalanceService removeBalanceService;
@@ -44,4 +46,6 @@ public class BaseOrcTest {
     protected CacheWebClient cacheWebClient;
     @MockBean
     protected OtpvWebClient otpvWebClient;
+    @MockBean
+    protected PaymentOrcWebClient paymentOrcWebClient;
 }
