@@ -143,8 +143,6 @@ Fdemo/src/main/java/com/kafka/demo/model/response/BaseBankResponse.java,d\b\db9
 Morc/src/main/java/com/kafka/orc/model/fragment/response/BaseBankResponse.java,5\1\51b2becc7e764f620b9ea6bfeb256e725f854799
 c
 3orc/src/main/java/com/kafka/orc/error/ErrorDto.java,8\5\853d53b273336364fa30446c09be7f5e389e5c5b
-m
-=demo/src/main/java/com/kafka/demo/service/BankAccService.java,c\d\cdbb5c99c1f3a9a1245bb5da1e5ce3c436c0cab1
 {
 Korc/src/main/java/com/kafka/orc/model/fragment/response/BaseDbResponse.java,5\8\586a17e9a614f785ee082b8a38c99d0cb64ef77a
 j
@@ -272,8 +270,6 @@ j
 :orc/src/main/java/com/kafka/orc/client/CacheWebClient.java,4\e\4e56a090716d453af938adf92c8534e63ce8b59d
 x
 Horc/src/main/java/com/kafka/orc/fragment/session/UserSessionService.java,2\c\2c7fc3f7d011fff05f40b3ef94caf3ae274ec057
-n
->orc/src/main/java/com/kafka/orc/service/ValidationService.java,7\a\7aa2415a381708cad56b8d56d928d2c2e61763ac
 k
 ;orc/src/main/java/com/kafka/orc/model/fragment/BankAcc.java,e\4\e4c5af0399f2b294f1bfb92a1c31bb06d95bb728
 n
@@ -282,8 +278,6 @@ n
 Rorc/src/main/java/com/kafka/orc/model/fragment/response/StatusBankAccResponse.java,f\e\fec77476575e4ca3e90d1870209b421172ac9c68
 n
 >orc/src/main/java/com/kafka/orc/model/fragment/SicSession.java,f\f\ff907f61dc5184e74964e4ffe688348be3c10e58
-}
-Mdemo/src/main/java/com/kafka/demo/service/internal/BankAccSicCrudService.java,4\b\4b93a85ef40d33b2018669a98f8ffd0b501ddc9a
 z
 Jdemo/src/main/java/com/kafka/demo/service/internal/BankAccCrudService.java,4\7\4716d26b3fbafb6bcd525f22bb52c9f6eb8b544f
 t
@@ -294,3 +288,17 @@ e
 5orc/src/main/java/com/kafka/orc/constants/Action.java,f\7\f70ec4169eca0b09cede3a9c8fdf2ab0a3f83fc2
 i
 9orc/src/main/java/com/kafka/orc/service/LoginService.java,1\d\1d9199075d1acd53abbc0d38a1e7fd2ada63523e
+`
+0orc/src/test/java/com/kafka/orc/BaseOrcTest.java,b\e\be2b1a7304e0bd4c7050311b1944c736735b49f3
+q
+Aorc/src/main/java/com/kafka/orc/service/BankAccStatusService.java,4\2\42cd5dba47746765b052124bb5c8a3335ad16eb5
+j
+:orc/src/main/java/com/kafka/orc/service/StatusService.java,3\9\3988066c4bdb556894ab22fcc0bfd7f20cd41508
+p
+@demo/src/main/java/com/kafka/demo/service/StatusBankService.java,9\7\97ee30f59f2983ffc02ae62cd27083becc00c4fb
+u
+Eorc/src/test/java/com/kafka/orc/service/BankAccStatusServiceTest.java,0\2\022415302f7950d4167be8db17754b0dd99097ac
+n
+>orc/src/main/java/com/kafka/orc/controller/UserController.java,0\3\032913276bd6baa1def1356bcdf6ee46d065b560
+o
+?orc/src/main/java/com/kafka/orc/service/GenerateOtpService.java,f\8\f8028e129a2316558c8d48f8a5bd80d4489aff95

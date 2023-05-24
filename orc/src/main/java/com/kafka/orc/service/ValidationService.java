@@ -2,6 +2,7 @@ package com.kafka.orc.service;
 
 import com.kafka.orc.constants.Action;
 import com.kafka.orc.error.OrcError;
+import com.kafka.orc.fragment.bankacc.BankUserService;
 import com.kafka.orc.fragment.otpv.OtpvService;
 import com.kafka.orc.fragment.session.UserSessionService;
 import com.kafka.orc.fragment.usersic.UserSicService;
@@ -16,7 +17,8 @@ import org.springframework.util.ObjectUtils;
 @Service
 public class ValidationService {
 
-
+    @Autowired
+    BankUserService bankUserService;
     @Autowired
     UserSicService userSicService;
     @Autowired
@@ -47,6 +49,24 @@ public class ValidationService {
 
             userSessionService.updateSession(sessionId);
 
+        }
+
+        else if (request.getAction().equals(Action.BANKCERTIFY)){
+
+            var sessionId = headers.getFirst("sessionId");
+
+            if(ObjectUtils.isEmpty(sessionId))
+                throw new OrcError("Session_Missing","SessionId is missing","Invalid_Session");
+
+            //check session
+            userSessionService.checkSession(sessionId);
+            // chiamata direttamnte a otpv per check
+            otpvService.checkOtpv(request.getUserKey(),request.getTrxId(), request.getOtp());
+
+            // certifi acc
+            bankUserService.certifyBankAcc(request.getUserKey());
+
+            return Action.BANKCERTIFIED;
         }
         else{
             var sessionId = headers.getFirst("sessionId");

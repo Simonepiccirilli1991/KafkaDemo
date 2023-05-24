@@ -55,4 +55,22 @@ public class BankAccWebClient {
 
         return resp.block();
     }
+
+    public BaseBankResponse certifyBankAcc(String userKey) {
+
+        logger.debug("Calling status Bank Acc service");
+
+        //TODO: inserire endpoint
+        var resp =  webClient.post()
+                .uri("" + "")
+                .bodyValue(userKey)
+                .retrieve()
+                .bodyToMono(BaseBankResponse.class)
+                .onErrorMap(e -> {
+                    logger.error("Error on status Bank Acc with error: ", e.getMessage());
+                    throw new OrcError("Generic Error", "PI_MS_5000: Generic error","UserBankCertKO-02");
+                });
+
+        return resp.block();
+    }
 }

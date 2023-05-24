@@ -35,4 +35,12 @@ public class BankUserService {
 
         return response;
     }
+
+    public void certifyBankAcc(String userKey){
+
+        var resp = bankAccWebClient.certifyBankAcc(userKey);
+
+        if(ObjectUtils.isEmpty(resp) || resp.getIsError())
+            throw new OrcError(resp.getResult(),resp.getMsg(),"UserBankCertKO-02");
+    }
 }

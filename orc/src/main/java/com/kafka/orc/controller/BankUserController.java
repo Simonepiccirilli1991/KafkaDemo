@@ -20,5 +20,5 @@ public class BankUserController {
         return ResponseEntity.ok(bankAccStatusService.statusPostLoginBank(userKey,header));
     }
 
-    //TODO: creare servizio su bank che certifica lui o faccio checkotp io? vedere
+    //TODO: creare servizio che fa check otp e poi certifica su bankAcc
 }
