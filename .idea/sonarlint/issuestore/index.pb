@@ -242,8 +242,6 @@ h
 8orc/src/main/java/com/kafka/orc/client/SicWebClient.java,a\9\a9e1b71e0ddf8833b5e722ef3173b2f4a24a76f6
 t
 Dorc/src/main/java/com/kafka/orc/fragment/usersic/UserSicService.java,1\d\1d893d2edf2554f3fcd4eaea996bbbeaf755ec1e
-i
-9orc/src/main/java/com/kafka/orc/client/OtpvWebClient.java,c\4\c413000f8e5542b45777b943b5689e5fc03a9024
 o
 ?otpv/src/main/java/com/kafka/otpv/service/CheckOtpvService.java,6\6\66df714e38e9cb957788cf883ef43e2100dd735e
 n
@@ -254,10 +252,6 @@ i
 Oorc/src/main/java/com/kafka/orc/model/fragment/response/GetSessionResponse.java,8\6\8661289ef11de7dea582f337aa0158df75a84a61
 o
 ?cache/src/main/java/com/kafka/cache/service/SessionService.java,7\2\72c601e08df4e382b83b27ad164e32777f2ebf05
-j
-:orc/src/main/java/com/kafka/orc/client/CacheWebClient.java,4\e\4e56a090716d453af938adf92c8534e63ce8b59d
-x
-Horc/src/main/java/com/kafka/orc/fragment/session/UserSessionService.java,2\c\2c7fc3f7d011fff05f40b3ef94caf3ae274ec057
 k
 ;orc/src/main/java/com/kafka/orc/model/fragment/BankAcc.java,e\4\e4c5af0399f2b294f1bfb92a1c31bb06d95bb728
 n
@@ -270,8 +264,6 @@ t
 Ddemo/src/main/java/com/kafka/demo/model/response/StatusResponse.java,5\e\5effc13b8ab91dfe5648eb3eddf6bcfe279d3bc5
 e
 5orc/src/main/java/com/kafka/orc/constants/Action.java,f\7\f70ec4169eca0b09cede3a9c8fdf2ab0a3f83fc2
-i
-9orc/src/main/java/com/kafka/orc/service/LoginService.java,1\d\1d9199075d1acd53abbc0d38a1e7fd2ada63523e
 q
 Aorc/src/main/java/com/kafka/orc/service/BankAccStatusService.java,4\2\42cd5dba47746765b052124bb5c8a3335ad16eb5
 j

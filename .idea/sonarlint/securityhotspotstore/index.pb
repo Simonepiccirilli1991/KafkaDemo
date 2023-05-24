@@ -242,8 +242,6 @@ Lorc/src/main/java/com/kafka/orc/model/fragment/request/CheckOtpvRequest.java,4
 Notpv/src/main/java/com/kafka/otpv/model/response/CheckOtpvSummaryResponse.java,3\1\31c37f7c990340e8b6e6d48ade4cbf63dde5f2bb
 ~
 Norc/src/main/java/com/kafka/orc/model/fragment/response/CheckOtpvResponse.java,8\9\898ec5fa6a2010928729bd52004774b5f4fd1130
-i
-9orc/src/main/java/com/kafka/orc/client/OtpvWebClient.java,c\4\c413000f8e5542b45777b943b5689e5fc03a9024
 o
 ?otpv/src/main/java/com/kafka/otpv/service/CheckOtpvService.java,6\6\66df714e38e9cb957788cf883ef43e2100dd735e
 n
@@ -254,10 +252,6 @@ i
 9cache/src/main/java/com/kafka/cache/model/SicSession.java,a\8\a8c401d201cf2d126ea3d88c130e0f7d62dc90da
 
 Oorc/src/main/java/com/kafka/orc/model/fragment/response/GetSessionResponse.java,8\6\8661289ef11de7dea582f337aa0158df75a84a61
-j
-:orc/src/main/java/com/kafka/orc/client/CacheWebClient.java,4\e\4e56a090716d453af938adf92c8534e63ce8b59d
-x
-Horc/src/main/java/com/kafka/orc/fragment/session/UserSessionService.java,2\c\2c7fc3f7d011fff05f40b3ef94caf3ae274ec057
 t
 Ddemo/src/main/java/com/kafka/demo/model/response/StatusResponse.java,5\e\5effc13b8ab91dfe5648eb3eddf6bcfe279d3bc5
 n
@@ -268,8 +262,6 @@ k
 ;orc/src/main/java/com/kafka/orc/model/fragment/BankAcc.java,e\4\e4c5af0399f2b294f1bfb92a1c31bb06d95bb728
 ‚
 Rorc/src/main/java/com/kafka/orc/model/fragment/response/StatusBankAccResponse.java,f\e\fec77476575e4ca3e90d1870209b421172ac9c68
-i
-9orc/src/main/java/com/kafka/orc/service/LoginService.java,1\d\1d9199075d1acd53abbc0d38a1e7fd2ada63523e
 e
 5orc/src/main/java/com/kafka/orc/constants/Action.java,f\7\f70ec4169eca0b09cede3a9c8fdf2ab0a3f83fc2
 j
