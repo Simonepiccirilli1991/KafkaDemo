@@ -4,10 +4,8 @@ import com.kafka.orc.constants.Action;
 import com.kafka.orc.model.fragment.GetBalanceAccResponse;
 import com.kafka.orc.model.fragment.request.BalanceRequest;
 import com.kafka.orc.model.fragment.response.AmountBankResponse;
-import com.kafka.orc.service.AddBalanceService;
-import com.kafka.orc.service.BankAccStatusService;
-import com.kafka.orc.service.GetBalanceService;
-import com.kafka.orc.service.RemoveBalanceService;
+import com.kafka.orc.model.request.PaymentRequest;
+import com.kafka.orc.service.*;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +20,7 @@ public class BankUserController {
     private final GetBalanceService getBalanceService;
     private final AddBalanceService addBalanceService;
     private final RemoveBalanceService removeBalanceService;
+    private final PaymentService paymentService;
 
 
     @PostMapping("/status")
@@ -46,4 +45,9 @@ public class BankUserController {
         return ResponseEntity.ok(removeBalanceService.removeBalance(request, header));
     }
 
+    @PostMapping("/payment")
+    public ResponseEntity<Boolean> payment(@RequestBody PaymentRequest request,
+                                           @RequestHeader HttpHeaders header){
+        return ResponseEntity.ok(paymentService.payment(request, header));
+    }
 }
