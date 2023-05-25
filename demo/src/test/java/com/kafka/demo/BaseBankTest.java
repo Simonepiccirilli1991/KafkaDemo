@@ -4,14 +4,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.kafka.demo.repo.BankAccRepo;
 import com.kafka.demo.repo.BankAccSicRepo;
-import com.kafka.demo.service.AddAmountService;
-import com.kafka.demo.service.BalanceService;
-import com.kafka.demo.service.BankAccService;
-import com.kafka.demo.service.StatusBankService;
+import com.kafka.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class BaseBankTest {
 
+    @Autowired
+    protected PaymentService paymentService;
     @Autowired
     protected BalanceService balanceService;
     @Autowired

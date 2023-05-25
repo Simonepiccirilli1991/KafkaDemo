@@ -1,12 +1,11 @@
 package com.kafka.demo.controller;
 
 import com.kafka.demo.model.request.AccountRequest;
+import com.kafka.demo.model.request.PaymentRequest;
 import com.kafka.demo.model.response.BaseBankResponse;
+import com.kafka.demo.model.response.PaymentResponse;
 import com.kafka.demo.model.response.StatusResponse;
-import com.kafka.demo.service.BalanceService;
-import com.kafka.demo.service.BankAccService;
-import com.kafka.demo.service.StatusBankService;
-import com.kafka.demo.service.AddAmountService;
+import com.kafka.demo.service.*;
 import com.kafka.demo.service.internal.BankAccCrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +24,8 @@ public class BankAccController {
     AddAmountService addAmountService;
     @Autowired
     BalanceService balanceService;
+    @Autowired
+    PaymentService paymentService;
 
 
     @PostMapping("/register")
@@ -53,5 +54,10 @@ public class BankAccController {
     public ResponseEntity<BankAccCrudService.GetBankAccSummaryFilter> getBalanceAcc(@PathVariable ("userKey") String userKey){
 
         return ResponseEntity.ok(balanceService.getBalanceAcc(userKey));
+    }
+
+    @PostMapping("/payment")
+    public ResponseEntity<PaymentResponse> payment(@RequestBody PaymentRequest request){
+        return ResponseEntity.ok(paymentService.payment(request));
     }
 }

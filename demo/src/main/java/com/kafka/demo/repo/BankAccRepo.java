@@ -24,13 +24,13 @@ public interface BankAccRepo extends JpaRepository<BankAccount,Long> {
             nativeQuery = true)
     Optional<BankAccount> findByEmail(@Param("email") String email);
 
-    @Query(value = "UPDATE bank_account SET bank_account.amountAviable = CASE " +
-            "WHEN userKey1 = :userKey1 THEN :saldoattuale1 " +
-            "WHEN userKey2 = :userKey2 THEN :saldoattuale2 " +
-            "ELSE bank_account.amountAviable END",
+    @Query(value = "UPDATE bank_account SET bank_account.amount_aviable = CASE " +
+            "WHEN user_key = :user_key1 THEN :saldoattuale1 " +
+            "WHEN user_key = :user_key2 THEN :saldoattuale2 " +
+            "ELSE bank_account.amount_aviable END",
             nativeQuery = true)
     @Modifying
     @Transactional
-    int paymentAccount(@Param("userKey1") String userPay, @Param("saldoattuale1") double amountToPay,
-                       @Param("userKey2") String userReceive, @Param("saldoattuale2") double amountToReceive);
+    int paymentAccount(@Param("user_key1") String userPay, @Param("saldoattuale1") double amountToPay,
+                       @Param("user_key2") String userReceive, @Param("saldoattuale2") double amountToReceive);
 }

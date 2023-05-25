@@ -266,14 +266,8 @@ o
 ?orc/src/main/java/com/kafka/orc/service/GenerateOtpService.java,f\8\f8028e129a2316558c8d48f8a5bd80d4489aff95
 r
 Borc/src/test/java/com/kafka/orc/service/ValidationServiceTest.java,9\e\9e47ce792b90fd55c631b0b2d3a736fa9b99d966
-c
-3demo/src/test/java/com/kafka/demo/BaseBankTest.java,f\8\f8be632e6ffe3f9c44bf7553a59f63f99a44fd2d
 q
 Ademo/src/test/java/com/kafka/demo/Service/BalanceServiceTest.java,0\5\05c3395ad92f2707f966dcc8ad9cea7d9a3caa65
-q
-Ademo/src/test/java/com/kafka/demo/Service/BankAccServiceTest.java,c\5\c53a090ff53b0213da046a5e7bb22bb2ddd7f508
-s
-Cdemo/src/test/java/com/kafka/demo/Service/AddAmountServiceTest.java,5\1\51a9b0831eb15d05da97ceef3ee4af3fe72d9b09
 p
 @demo/src/main/java/com/kafka/demo/service/StatusBankService.java,9\7\97ee30f59f2983ffc02ae62cd27083becc00c4fb
 y
@@ -292,8 +286,6 @@ n
 Oorc/src/main/java/com/kafka/orc/model/fragment/response/AmountBankResponse.java,f\c\fc3a2bb18620ee08a7389f559ed082a199874737
 o
 ?demo/src/main/java/com/kafka/demo/service/AddAmountService.java,3\9\39402040afe94cf4c6c376fa0033e4d64831a0e6
-s
-Cdemo/src/main/java/com/kafka/demo/controller/BankAccController.java,1\8\18940fec9d3aae28b20cf40d46afdf38b9899ce6
 l
 <orc/src/main/java/com/kafka/orc/client/BankAccWebClient.java,e\c\ec3d43ae8b99c1a89b08c4126e0bd8b4760a3271
 z
