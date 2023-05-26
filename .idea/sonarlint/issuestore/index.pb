@@ -39,10 +39,6 @@ s
 Cdemodb/src/test/java/com/kafka/demodb/service/RegisterUserTest.java,6\1\616c4344b7576fb6bfade70e736d7e5ae0dce329
 u
 Edemodb/src/test/java/com/kafka/demodb/service/UpdateSecuretyTest.java,6\4\6450c7d0cc4916fef0f0d00fdf210bcb07e90336
-{
-Kdemodb/src/main/java/com/kafka/demodb/service/internal/ItemCrudService.java,b\d\bd240ca2aeb28cd19a012e452e15e35c36cd85f8
-t
-Ddemodb/src/main/java/com/kafka/demodb/controller/ItemController.java,0\5\054b86feaf8e0491a6103618b9875f945c2a7cf1
 =
 demo/mvnw.cmd,4\3\437e70af9793a466618b92893f8c7d9117237271
 <
