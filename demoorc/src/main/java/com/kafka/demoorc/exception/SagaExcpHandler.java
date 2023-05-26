@@ -15,8 +15,8 @@ public class SagaExcpHandler {
     ResponseEntity<SagaOrcError> erroHandler(SagaOrcExcept ex){
 
         SagaOrcError error = new SagaOrcError();
-        error.setCause(error.getCause());
-        error.setMsg(error.getMsg());
+        error.setCause(ex.getCaused());
+        error.setMsg(ex.getErrMsg());
         error.setDate(LocalDateTime.now());
 
         return ResponseEntity.internalServerError().body(error);

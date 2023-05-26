@@ -6,13 +6,13 @@ import lombok.Data;
 public class SagaOrcExcept extends RuntimeException {
 
     private String errMsg;
-    private String cause;
+    private String caused;
 
     public SagaOrcExcept() {
     }
 
-    public SagaOrcExcept(String errMsg, String cause) {
+    public SagaOrcExcept(String errMsg, String caused) {
         this.errMsg = errMsg;
-        this.cause = cause;
+        this.caused = caused;
     }
 }

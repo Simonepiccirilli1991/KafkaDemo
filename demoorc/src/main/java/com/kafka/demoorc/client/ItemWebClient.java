@@ -26,7 +26,7 @@ public class ItemWebClient {
         return resp.block();
     }
 
-    public UpdateQuantitiSummary updateItem(String name, long quantity, boolean isRemove){
+    public UpdateQuantitiSummary updateItem(String name, Long quantity, Boolean isRemove){
 
         var resp = webClient.post().uri("TODO",name,quantity,isRemove)//TODO: aggiungere endpoint corretto con queey param
                 .retrieve().bodyToMono(UpdateQuantitiSummary.class)
