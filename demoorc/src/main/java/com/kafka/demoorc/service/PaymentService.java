@@ -36,6 +36,8 @@ public class PaymentService {
         // ora effettuo pagamento
         try{
 
+            transactionService.transactionPayment(request.getUserPay(),request.getUserReceive(),finalPrice);
+
         }catch(Exception e){
 
             //rollbacko e lancio eccezzione
@@ -43,6 +45,6 @@ public class PaymentService {
             throw new SagaOrcExcept("Exception happend during transaction",e.getMessage());
         }
 
-        return null;
+        return new PaymentResponse("transaction completed",true,"OK-00");
     }
 }
