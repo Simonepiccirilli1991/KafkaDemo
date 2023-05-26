@@ -1,0 +1,24 @@
+config:
+  connect-timeout: ${FUNNEL_CONNECT_TIMEOUT:30000}
+  read-timeout: ${FUNNEL_READ_TIMEOUT:30000}
+  skipCheckHostname: ${SKIP_CHECK_HOSTNAME:true}
+  selfSigneCertificateAllowed: ${SELF_SIGNED_CERTIFICATE_ALLOWED:true}
+  skipCertificateValidation: ${SKIP_CERTIFICATE_VALIDATION:true}
+  connectionTimeout: ${CONNECTION_TIMEOUT:10000}
+  socketTimeout: ${SOCKET_TIMEOUT:30000}
+  trustStorePath: ${TRUST_STORE_PATH:}
+  trustStorePwd: ${TRUST_STORE_PWD:}
+  maxConnections: ${MAX_CONNECTIONS:200}
+  maxConnectionsPerRoute: ${MAX_CONNECTIONS_PER_ROUTE:20}
+  max-log-size: ${HTTP_MAX_LOG_SIZE:200}
+
+spring:
+  #proxy
+  cloud:
+    gateway:
+      httpclient:
+        proxy:
+          host: 10.183.32.4
+          port: 8080
+
+  port: 8084
