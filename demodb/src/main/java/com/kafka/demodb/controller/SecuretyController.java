@@ -26,12 +26,12 @@ public class SecuretyController {
         return ResponseEntity.ok(updateSecuretuService.certifyMailUser(request.getUserKey(),request.getMail(),request.getOtp(), request.getTrxId()));
     }
 
-    @PostMapping("change")
+    @PostMapping("/change")
     public ResponseEntity<BaseDbResponse> changePsw(@RequestBody ChangePswRequest request){
         return ResponseEntity.ok(updateSecuretuService.changePsw(request));
     }
 
-    @PostMapping("retrive")
+    @PostMapping("/retrive")
     public ResponseEntity<BaseDbResponse> retrivePsw(@RequestBody RetrivePswRequest request){
         return ResponseEntity.ok(updateSecuretuService.retrivePsw(request));
 

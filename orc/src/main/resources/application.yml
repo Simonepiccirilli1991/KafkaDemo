@@ -12,6 +12,14 @@ config:
     maxConnectionsPerRoute: ${MAX_CONNECTIONS_PER_ROUTE:20}
     max-log-size: ${HTTP_MAX_LOG_SIZE:200}
 
+    client:
+        iwdb: ${IWDB_ENDPOINT:http://localhost:8081/api/v1/user/}
+        iwdbsic: ${IWDB_ENDPOINT:http://localhost:8081/api/v1/securety/}
+        iwacc: ${IWDBACC_ENDPOINT:http//:localhost:8082/api/v1/bank/}
+        otpv: ${OTPV_ENDPOINT:http://localhost:8083/api/v1/otp/}
+        cache: ${CACHE_ENDPOINT:http://localhost:8084/api/v1/session/}
+        saorc: ${SAORC_ENDPOINT:http://localhost:8085/api/v1/payment/}
+
 spring:
     #proxy
     cloud:

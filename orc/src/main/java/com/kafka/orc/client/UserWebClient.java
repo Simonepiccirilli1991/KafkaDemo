@@ -18,16 +18,8 @@ public class UserWebClient {
     @Autowired
     WebClient webClient;
 
-    @Value("${config.sic.url-user}")
-    private String baseUrlUserSic; //localhost:8081/api/v1/user
-    @Value("${config.sic.path-register}")
-    private String apiPathRegister; // /register
-    @Value("${config.sic.path-check}")
-    private String apiPathCheck; // /check
-    @Value("${config.sic.path-status}")
-    private String apiPathStatus; // /status
-    @Value("${config.sic.path-get-usrnm}")
-    private String apiPathGetUsrnm; // /get/{userName}
+    @Value("config.client.iwdb")
+    private String iwdbEndPoint; // base endpoint
 
     private final Logger logger = LogManager.getLogger(UserWebClient.class);
 
@@ -36,7 +28,7 @@ public class UserWebClient {
         logger.debug("Calling register UserSic service");
 
         var resp =  webClient.post()
-                .uri(baseUrlUserSic + apiPathRegister)
+                .uri(iwdbEndPoint + "register")
                 .bodyValue(request)
                 .retrieve()
                 .bodyToMono(BaseDbResponse.class)
@@ -54,7 +46,7 @@ public class UserWebClient {
         logger.debug("Calling checkPinUser service");
 
         var resp =  webClient.post()
-                .uri(baseUrlUserSic + apiPathCheck)
+                .uri(iwdbEndPoint + "checkpin")
                 .bodyValue(request)
                 .retrieve()
                 .bodyToMono(BaseDbResponse.class)
@@ -71,7 +63,7 @@ public class UserWebClient {
         logger.debug("Calling statusSic service");
 
         var resp =  webClient.post()
-                .uri(baseUrlUserSic + apiPathStatus)
+                .uri(iwdbEndPoint + "status")
                 .bodyValue(request)
                 .retrieve()
                 .bodyToMono(StatusSicResponse.class)
@@ -88,7 +80,7 @@ public class UserWebClient {
         logger.debug("Calling statusSic service");
 
         var resp =  webClient.post()
-                .uri(baseUrlUserSic + apiPathGetUsrnm + username)
+                .uri(iwdbEndPoint + "get/" + username)
                 .retrieve()
                 .bodyToMono(GetUserByUsernResponse.class)
                 .onErrorMap(e -> {

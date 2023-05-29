@@ -7,6 +7,7 @@ import com.kafka.orc.model.fragment.response.GetSessionResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -17,6 +18,9 @@ public class CacheWebClient {
     @Autowired
     WebClient webClient;
 
+    @Value("config.client.cache")
+    private String cacheEndPoint; // base endpoint
+
     private final Logger logger = LogManager.getLogger(CacheWebClient.class);
 
     public CreateSessionResponse createSession(SessionRequest request) {
@@ -24,7 +28,7 @@ public class CacheWebClient {
         logger.debug("Calling create session service");
 
         var resp =  webClient.post()
-                .uri("" + "")
+                .uri(cacheEndPoint + "create")
                 .bodyValue(request)
                 .retrieve().toEntity(ResponseEntity.class)
                 .onErrorMap(e -> {
@@ -44,7 +48,7 @@ public class CacheWebClient {
     public Boolean checkValidSession(String sessionId){
 
         var resp =  webClient.post()
-                .uri("" + "")
+                .uri(cacheEndPoint + "check/session")
                 .header("sessionId",sessionId)
                 .retrieve().bodyToMono(Boolean.class)
                 .onErrorMap(e -> {
@@ -60,7 +64,7 @@ public class CacheWebClient {
     public SessionUpdate updateSession(String sessionId){
 
         var resp =  webClient.post()
-                .uri("" + "")
+                .uri(cacheEndPoint + "update")
                 .header("sessionId",sessionId)
                 .retrieve().bodyToMono(SessionUpdate.class)
                 .onErrorMap(e -> {
@@ -76,7 +80,7 @@ public class CacheWebClient {
     public GetSessionResponse getSession(String sessionId){
 
         var resp =  webClient.get()
-                .uri("" + sessionId)
+                .uri(cacheEndPoint + "getsession/" + sessionId)
                 .retrieve().bodyToMono(GetSessionResponse.class)
                 .onErrorMap(e -> {
                     logger.error("Error on get session with error: ", e.getMessage());

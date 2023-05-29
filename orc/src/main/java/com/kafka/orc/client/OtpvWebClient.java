@@ -9,6 +9,7 @@ import com.kafka.orc.model.fragment.response.GenerateOtpvResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -18,7 +19,8 @@ public class OtpvWebClient {
     @Autowired
     WebClient webClient;
 
-
+    @Value("config.client.otpv")
+    private String otpvEndPoint; // base endpoint
     private final Logger logger = LogManager.getLogger(OtpvWebClient.class);
 
     public GenerateOtpvResponse generateOtpv(String userKey) {
@@ -26,7 +28,7 @@ public class OtpvWebClient {
         logger.debug("Calling generate otp service");
 
         var resp =  webClient.post()
-                .uri("" + "")
+                .uri(otpvEndPoint + "generate")
                 .bodyValue(userKey)
                 .retrieve()
                 .bodyToMono(GenerateOtpvResponse.class)
@@ -43,7 +45,7 @@ public class OtpvWebClient {
         logger.debug("Calling Check otpv service");
 
         var resp =  webClient.post()
-                .uri("" + "")
+                .uri(otpvEndPoint + "check")
                 .bodyValue(request)
                 .retrieve()
                 .bodyToMono(CheckOtpvResponse.class)

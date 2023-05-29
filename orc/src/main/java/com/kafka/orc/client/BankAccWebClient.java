@@ -11,6 +11,7 @@ import com.kafka.orc.model.fragment.response.StatusBankAccResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -20,6 +21,9 @@ public class BankAccWebClient {
     @Autowired
     WebClient webClient;
 
+    @Value("config.client.iwacc")
+    private String bankAccEndPoint; // base endpoint
+
     private final Logger logger = LogManager.getLogger(UserWebClient.class);
 
     public BaseBankResponse registerBankUser(UserAccRequest request) {
@@ -28,7 +32,7 @@ public class BankAccWebClient {
 
         //TODO: inserire endpoint
         var resp =  webClient.post()
-                .uri("" + "")
+                .uri(bankAccEndPoint + "register")
                 .bodyValue(request)
                 .retrieve()
                 .bodyToMono(BaseBankResponse.class)
@@ -46,7 +50,7 @@ public class BankAccWebClient {
 
         //TODO: inserire endpoint
         var resp =  webClient.post()
-                .uri("" + "")
+                .uri(bankAccEndPoint + "status")
                 .bodyValue(userKey)
                 .retrieve()
                 .bodyToMono(StatusBankAccResponse.class)
@@ -64,7 +68,7 @@ public class BankAccWebClient {
 
         //TODO: inserire endpoint
         var resp =  webClient.post()
-                .uri("" + "")
+                .uri(bankAccEndPoint + "certify")
                 .bodyValue(userKey)
                 .retrieve()
                 .bodyToMono(BaseBankResponse.class)
@@ -82,7 +86,7 @@ public class BankAccWebClient {
 
         //TODO: inserire endpoint
         var resp =  webClient.get()
-                .uri("" + userKey)
+                .uri(bankAccEndPoint + "getbalance/" + userKey)
                 .retrieve()
                 .bodyToMono(GetBalanceAccResponse.class)
                 .onErrorMap(e -> {
@@ -100,7 +104,7 @@ public class BankAccWebClient {
 
         //TODO: inserire endpoint con pqueery paramether
         var resp =  webClient.get()
-                .uri("" + userKey)
+                .uri(bankAccEndPoint + "/amount", userKey,amount,isRemove)
                 .retrieve()
                 .bodyToMono(AmountBankResponse.class)
                 .onErrorMap(e -> {

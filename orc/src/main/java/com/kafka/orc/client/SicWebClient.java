@@ -19,14 +19,8 @@ public class SicWebClient {
     @Autowired
     WebClient webClient;
 
-    @Value("${config.sic.url-user-sic}")
-    private String baseUrlUserSic; //localhost:8081/api/v1/securety
-    @Value("${config.sic.path-ceritfy}")
-    private String apiPathCertify; // /cetify
-    @Value("${config.sic.path-change}")
-    private String apiPathChange; // /change
-    @Value("${config.sic.path-retrive}")
-    private String apiPathRetrive; // /retrive   -- retrive psw
+    @Value("config.client.iwdbsicc")
+    private String iwdbsicEndPoint; // base endpoint
 
 
     private final Logger logger = LogManager.getLogger(SicWebClient.class);
@@ -36,7 +30,7 @@ public class SicWebClient {
         logger.debug("Calling cetify UserSic service");
 
         var resp =  webClient.post()
-                .uri(baseUrlUserSic + apiPathCertify)
+                .uri(iwdbsicEndPoint + "certify")
                 .bodyValue(request)
                 .retrieve()
                 .bodyToMono(BaseDbResponse.class)
@@ -53,7 +47,7 @@ public class SicWebClient {
         logger.debug("Calling changePsw UserSic service");
 
         var resp =  webClient.post()
-                .uri(baseUrlUserSic + apiPathChange)
+                .uri(iwdbsicEndPoint + "change")
                 .bodyValue(request)
                 .retrieve()
                 .bodyToMono(BaseDbResponse.class)
@@ -70,7 +64,7 @@ public class SicWebClient {
         logger.debug("Calling retrivePsw UserSic service");
 
         var resp =  webClient.post()
-                .uri(baseUrlUserSic + apiPathRetrive)
+                .uri(iwdbsicEndPoint + "retrive")
                 .bodyValue(request)
                 .retrieve()
                 .bodyToMono(BaseDbResponse.class)
