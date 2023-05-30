@@ -1,0 +1,104 @@
+services:
+  OrderOrchestrator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8088:8088"
+    volumes:
+      - ./config:/config
+    environment:
+      - "spring.config.location=/config/application-docker.yml"
+      - IWDB_ENDPOINT=http://demodb:8081
+      - CACHE_ENDPOINT=http://CACH:8084
+      - OTPV_ENDPOINT=http://OTPV:8083
+      - IWDBACC_ENDPOINT=http://order-composition:8082
+      - SAORC_ENDPOINT=http://SAOR:8085
+    image: orderorchestrator-img
+    networks:
+      - app-net
+      
+  demodb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      - IWDB_ENDPOINT=http://demodb:8081
+      - CACHE_ENDPOINT=http://CACH:8084
+      - OTPV_ENDPOINT=http://OTPV:8083
+      - IWDBACC_ENDPOINT=http://order-composition:8082
+      - SAORC_ENDPOINT=http://SAOR:8085
+    image: demodb-img
+    networks:
+      - app-net
+    volumes:
+      - data:/var/lib/h2
+  SAORC:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8085:8085"
+    environment:
+      - IWDB_ENDPOINT=http://demodb:8081
+      - CACHE_ENDPOINT=http://CACH:8084
+      - OTPV_ENDPOINT=http://OTPV:8083
+      - IWDBACC_ENDPOINT=http://order-composition:8082
+      - SAORC_ENDPOINT=http://SAOR:8085
+    image: saorc-img
+    networks:
+      - app-net
+    volumes:
+      - data:/var/lib/h2
+  CACH:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8084:8084"
+    environment:
+      - IWDB_ENDPOINT=http://demodb:8081
+      - CACHE_ENDPOINT=http://CACH:8084
+      - OTPV_ENDPOINT=http://OTPV:8083
+      - IWDBACC_ENDPOINT=http://order-composition:8082
+      - SAORC_ENDPOINT=http://SAOR:8085
+    image: cache-img
+    networks:
+      - app-net
+  OTPV:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8083"
+    environment:
+      - IWDB_ENDPOINT=http://demodb:8081
+      - CACHE_ENDPOINT=http://CACH:8084
+      - OTPV_ENDPOINT=http://OTPV:8083
+      - IWDBACC_ENDPOINT=http://order-composition:8082
+      - SAORC_ENDPOINT=http://SAOR:8085
+    image: otpv-img
+    networks:
+      - app-net
+  order-composition:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    environment:
+      - IWDB_ENDPOINT=http://demodb:8081
+      - CACHE_ENDPOINT=http://CACH:8084
+      - OTPV_ENDPOINT=http://OTPV:8083
+      - IWDBACC_ENDPOINT=http://order-composition:8082
+      - SAORC_ENDPOINT=http://SAOR:8085
+    image: ordercomposition-img
+    networks:
+      - app-net
+volumes:
+  data:
+networks:
+  app-net:
+    driver: bridge

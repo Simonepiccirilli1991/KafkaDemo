@@ -1,0 +1,16 @@
+server:
+ port: 8088
+ 
+config:
+  iwdb0:
+    end-point: ${IWDB0_ENDPOINT}
+  cach0:
+    end-point: ${CACH0_ENDPOINT}
+  smoc0:
+    end-point: ${SMOC0_ENDPOINT}
+  ansc0:
+    end-point: ${ANSC0_ENDPOINT}
+  otpv0:
+    end-point: ${OTPV0_ENDPOINT}
+  agtw0:
+    end-point: ${AGTW0_ENDPOINT}

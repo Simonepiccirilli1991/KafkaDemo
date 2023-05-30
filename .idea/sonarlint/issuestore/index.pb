@@ -346,5 +346,3 @@ h
 8orc/src/main/java/com/kafka/orc/client/SicWebClient.java,a\9\a9e1b71e0ddf8833b5e722ef3173b2f4a24a76f6
 o
 ?orc/src/main/java/com/kafka/orc/client/PaymentOrcWebClient.java,8\8\88740f68aab9a9676c3bd0de13073e868169171a
-;
-orc/pom.xml,3\5\357c4e219bb74814af8114ec0262fb5f5648f0cb
