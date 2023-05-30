@@ -5,6 +5,7 @@ import com.kafka.demoorc.model.fragment.request.GetItemRequest;
 import com.kafka.demoorc.model.fragment.response.GetItemResponse;
 import com.kafka.demoorc.model.response.UpdateQuantitiSummary;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -14,9 +15,12 @@ public class ItemWebClient {
     @Autowired
     WebClient webClient;
 
+    @Value("config.client.iwdb")
+    private String endpoint;
+
     public GetItemResponse getItem(GetItemRequest request){
 
-        var resp = webClient.post().uri("TODO")//TODO: aggiungere endpoint corretto
+        var resp = webClient.post().uri(endpoint + "getItem")//TODO: aggiungere endpoint corretto
                 .bodyValue(request)
                 .retrieve().bodyToMono(GetItemResponse.class)
                 .onErrorResume( e -> {
@@ -28,7 +32,7 @@ public class ItemWebClient {
 
     public UpdateQuantitiSummary updateItem(String name, Long quantity, Boolean isRemove){
 
-        var resp = webClient.post().uri("TODO",name,quantity,isRemove)//TODO: aggiungere endpoint corretto con queey param
+        var resp = webClient.post().uri(endpoint + "update/quantity", name,quantity,isRemove)//TODO: aggiungere endpoint corretto con queey param
                 .retrieve().bodyToMono(UpdateQuantitiSummary.class)
                 .onErrorResume( e -> {
                     throw new SagaOrcExcept("error on calling updateItem",e.getMessage());

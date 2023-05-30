@@ -1,4 +1,4 @@
-FROM openjdk:2'-jdk-alpine
+FROM openjdk:20-jdk-alpine
 
 # Set the working directory
 WORKDIR /app

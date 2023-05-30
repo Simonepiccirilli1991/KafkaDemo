@@ -12,6 +12,10 @@ config:
   maxConnectionsPerRoute: ${MAX_CONNECTIONS_PER_ROUTE:20}
   max-log-size: ${HTTP_MAX_LOG_SIZE:200}
 
+  client:
+    iwdb: ${IWDB_ENDPOINT:http://localhost:8081/api/v1/item/}
+    iwacc: ${IWDBACC_ENDPOINT:http//:localhost:8082/api/v1/bank/}
+
 spring:
   #proxy
   cloud:
@@ -21,4 +25,6 @@ spring:
           host: 10.183.32.4
           port: 8080
 
-  port: 8084
+  port: 8085
+
+

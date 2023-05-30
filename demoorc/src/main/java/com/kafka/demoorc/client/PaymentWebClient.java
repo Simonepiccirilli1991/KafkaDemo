@@ -6,6 +6,7 @@ import com.kafka.demoorc.model.fragment.request.TransactionPaymentRequest;
 import com.kafka.demoorc.model.fragment.response.GetItemResponse;
 import com.kafka.demoorc.model.fragment.response.TransactionPaymentResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -14,10 +15,12 @@ public class PaymentWebClient {
 
     @Autowired
     WebClient webClient;
+    @Value("config.client.iwacc")
+    private String endpoint;
 
     public TransactionPaymentResponse transactionPayment(TransactionPaymentRequest request){
 
-        var resp = webClient.post().uri("TODO")//TODO: aggiungere endpoint corretto
+        var resp = webClient.post().uri(endpoint + "payment")//TODO: aggiungere endpoint corretto
                 .bodyValue(request)
                 .retrieve().bodyToMono(TransactionPaymentResponse.class)
                 .onErrorResume( e -> {
